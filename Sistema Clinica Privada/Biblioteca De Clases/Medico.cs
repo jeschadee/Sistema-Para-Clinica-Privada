@@ -8,5 +8,6 @@ namespace Biblioteca_De_Clases
 {
     class Medico
     {
+
     }
 }

@@ -59,5 +59,26 @@ namespace Interfaz.Properties {
                 resourceCulture = value;
             }
         }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap kisspng_data_analysis_predictive_analytics_business_administrator_5acd70937605e1_5624598715234131394834 {
+            get {
+                object obj = ResourceManager.GetObject("kisspng-data-analysis-predictive-analytics-business-administrator-5acd70937605e1." +
+                        "5624598715234131394834", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap stethoscope_gad34477ad_640 {
+            get {
+                object obj = ResourceManager.GetObject("stethoscope-gad34477ad_640", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
     }
 }

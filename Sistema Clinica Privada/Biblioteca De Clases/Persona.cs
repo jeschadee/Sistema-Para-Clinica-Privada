@@ -1,11 +1,22 @@
 ﻿using System;
 
-namespace Biblioteca_De_Clases
+namespace BibliotecaDeClases
 {
     public class Persona
     {
-        public string nombre;
-        public string apellido;
-        public bool estado;
+        private string nombre;
+        private string apellido;
+        private bool estado;
+
+        public string Nombre { get => nombre; }
+        public string Apellido { get => apellido;}
+        public bool Estado { get => estado;}
+
+        public Persona(string nombre, string apellido, bool estado)
+        {
+            this.nombre = nombre;
+            this.apellido = apellido;
+            this.estado = estado;
+        }
     }
 }

@@ -13,6 +13,16 @@
         "frameworkReferences": [
           "Microsoft.WindowsDesktop.App"
         ]
+      },
+      "BibliotecaDeClases/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v5.0",
+        "compile": {
+          "bin/placeholder/BibliotecaDeClases.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/BibliotecaDeClases.dll": {}
+        }
       }
     }
   },
@@ -33,10 +43,16 @@
         "lib/net5.0-windows7.0/FontAwesome.Sharp.dll",
         "lib/netcoreapp3.1/FontAwesome.Sharp.dll"
       ]
+    },
+    "BibliotecaDeClases/1.0.0": {
+      "type": "project",
+      "path": "../Biblioteca De Clases/BibliotecaDeClases.csproj",
+      "msbuildProject": "../Biblioteca De Clases/BibliotecaDeClases.csproj"
     }
   },
   "projectFileDependencyGroups": {
     "net5.0-windows7.0": [
+      "BibliotecaDeClases >= 1.0.0",
       "FontAwesome.Sharp >= 5.15.4"
     ]
   },
@@ -66,7 +82,11 @@
       "frameworks": {
         "net5.0-windows7.0": {
           "targetAlias": "net5.0-windows",
-          "projectReferences": {}
+          "projectReferences": {
+            "C:\\Users\\W10-PC\\Desktop\\Programacion\\Codigos\\Sistema-Para-Clinica-Privada\\Sistema Clinica Privada\\Biblioteca De Clases\\BibliotecaDeClases.csproj": {
+              "projectPath": "C:\\Users\\W10-PC\\Desktop\\Programacion\\Codigos\\Sistema-Para-Clinica-Privada\\Sistema Clinica Privada\\Biblioteca De Clases\\BibliotecaDeClases.csproj"
+            }
+          }
         }
       },
       "warningProperties": {

@@ -63,10 +63,41 @@ namespace Interfaz.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap ad139bf8e30200543c6bf9a00e146b68 {
+            get {
+                object obj = ResourceManager.GetObject("ad139bf8e30200543c6bf9a00e146b68", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap cab {
+            get {
+                object obj = ResourceManager.GetObject("cab", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap kisspng_data_analysis_predictive_analytics_business_administrator_5acd70937605e1_5624598715234131394834 {
             get {
                 object obj = ResourceManager.GetObject("kisspng-data-analysis-predictive-analytics-business-administrator-5acd70937605e1." +
                         "5624598715234131394834", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap kisspng_medicine_staff_of_hermes_symbol_clip_art_hermes_5ac75ec52c3953_2370121915230153651812 {
+            get {
+                object obj = ResourceManager.GetObject("kisspng-medicine-staff-of-hermes-symbol-clip-art-hermes-5ac75ec52c3953.2370121915" +
+                        "230153651812", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

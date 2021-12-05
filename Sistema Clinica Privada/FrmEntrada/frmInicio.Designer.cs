@@ -29,9 +29,9 @@ namespace FrmEntrada
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.panelMenu = new System.Windows.Forms.Panel();
             this.iconHistorial = new FontAwesome.Sharp.IconButton();
-            this.iconListaDeEspera = new FontAwesome.Sharp.IconButton();
             this.iconListaDeMedicos = new FontAwesome.Sharp.IconButton();
             this.iconDashboard = new FontAwesome.Sharp.IconButton();
             this.panelLogo = new System.Windows.Forms.Panel();
@@ -40,19 +40,36 @@ namespace FrmEntrada
             this.labelInicio = new System.Windows.Forms.Label();
             this.iconhijo = new FontAwesome.Sharp.IconPictureBox();
             this.panelSombraSuperior = new System.Windows.Forms.Panel();
-            this.panelDashboard = new System.Windows.Forms.Panel();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.PanelEscritorio = new System.Windows.Forms.Panel();
+            this.comboBoxPaciente = new System.Windows.Forms.ComboBox();
+            this.comboBoxMedico = new System.Windows.Forms.ComboBox();
+            this.iconButton1 = new FontAwesome.Sharp.IconButton();
+            this.iconButtonFinalizar = new FontAwesome.Sharp.IconButton();
+            this.iconPictureBox2 = new FontAwesome.Sharp.IconPictureBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.labelFecha = new System.Windows.Forms.Label();
+            this.labelHora = new System.Windows.Forms.Label();
+            this.horaFecha = new System.Windows.Forms.Timer(this.components);
+            this.Fecha = new System.Windows.Forms.Timer(this.components);
+            this.Medico = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Doctor = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panelMenu.SuspendLayout();
             this.panelLogo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btnLogo)).BeginInit();
             this.barraDeTitulo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.iconhijo)).BeginInit();
+            this.PanelEscritorio.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.iconPictureBox2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
             // panelMenu
             // 
-            this.panelMenu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(78)))), ((int)(((byte)(119)))));
+            this.panelMenu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(246)))), ((int)(((byte)(251)))));
             this.panelMenu.Controls.Add(this.iconHistorial);
-            this.panelMenu.Controls.Add(this.iconListaDeEspera);
             this.panelMenu.Controls.Add(this.iconListaDeMedicos);
             this.panelMenu.Controls.Add(this.iconDashboard);
             this.panelMenu.Controls.Add(this.panelLogo);
@@ -67,53 +84,33 @@ namespace FrmEntrada
             this.iconHistorial.Dock = System.Windows.Forms.DockStyle.Top;
             this.iconHistorial.FlatAppearance.BorderSize = 0;
             this.iconHistorial.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.iconHistorial.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(118)))), ((int)(((byte)(200)))), ((int)(((byte)(147)))));
+            this.iconHistorial.Font = new System.Drawing.Font("Segoe UI", 9.818182F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.iconHistorial.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(70)))), ((int)(((byte)(116)))));
             this.iconHistorial.IconChar = FontAwesome.Sharp.IconChar.AddressBook;
-            this.iconHistorial.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(217)))), ((int)(((byte)(237)))), ((int)(((byte)(146)))));
+            this.iconHistorial.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(70)))), ((int)(((byte)(116)))));
             this.iconHistorial.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.iconHistorial.IconSize = 40;
             this.iconHistorial.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.iconHistorial.Location = new System.Drawing.Point(0, 280);
+            this.iconHistorial.Location = new System.Drawing.Point(0, 230);
             this.iconHistorial.Name = "iconHistorial";
             this.iconHistorial.Padding = new System.Windows.Forms.Padding(10, 0, 20, 0);
             this.iconHistorial.Size = new System.Drawing.Size(220, 50);
-            this.iconHistorial.TabIndex = 6;
+            this.iconHistorial.TabIndex = 7;
             this.iconHistorial.Text = "Historial";
             this.iconHistorial.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.iconHistorial.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.iconHistorial.UseVisualStyleBackColor = true;
-            this.iconHistorial.Click += new System.EventHandler(this.iconHistorial_Click);
-            // 
-            // iconListaDeEspera
-            // 
-            this.iconListaDeEspera.Dock = System.Windows.Forms.DockStyle.Top;
-            this.iconListaDeEspera.FlatAppearance.BorderSize = 0;
-            this.iconListaDeEspera.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.iconListaDeEspera.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(118)))), ((int)(((byte)(200)))), ((int)(((byte)(147)))));
-            this.iconListaDeEspera.IconChar = FontAwesome.Sharp.IconChar.Clock;
-            this.iconListaDeEspera.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(217)))), ((int)(((byte)(237)))), ((int)(((byte)(146)))));
-            this.iconListaDeEspera.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.iconListaDeEspera.IconSize = 40;
-            this.iconListaDeEspera.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.iconListaDeEspera.Location = new System.Drawing.Point(0, 230);
-            this.iconListaDeEspera.Name = "iconListaDeEspera";
-            this.iconListaDeEspera.Padding = new System.Windows.Forms.Padding(10, 0, 20, 0);
-            this.iconListaDeEspera.Size = new System.Drawing.Size(220, 50);
-            this.iconListaDeEspera.TabIndex = 5;
-            this.iconListaDeEspera.Text = "Lista de Espera";
-            this.iconListaDeEspera.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.iconListaDeEspera.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.iconListaDeEspera.UseVisualStyleBackColor = true;
-            this.iconListaDeEspera.Click += new System.EventHandler(this.iconListaDeEspera_Click);
+            this.iconHistorial.Click += new System.EventHandler(this.iconButton1_Click);
             // 
             // iconListaDeMedicos
             // 
             this.iconListaDeMedicos.Dock = System.Windows.Forms.DockStyle.Top;
             this.iconListaDeMedicos.FlatAppearance.BorderSize = 0;
             this.iconListaDeMedicos.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.iconListaDeMedicos.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(118)))), ((int)(((byte)(200)))), ((int)(((byte)(147)))));
+            this.iconListaDeMedicos.Font = new System.Drawing.Font("Segoe UI", 9.818182F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.iconListaDeMedicos.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(70)))), ((int)(((byte)(116)))));
             this.iconListaDeMedicos.IconChar = FontAwesome.Sharp.IconChar.UserNurse;
-            this.iconListaDeMedicos.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(217)))), ((int)(((byte)(237)))), ((int)(((byte)(146)))));
+            this.iconListaDeMedicos.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(70)))), ((int)(((byte)(116)))));
             this.iconListaDeMedicos.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.iconListaDeMedicos.IconSize = 40;
             this.iconListaDeMedicos.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -121,7 +118,7 @@ namespace FrmEntrada
             this.iconListaDeMedicos.Name = "iconListaDeMedicos";
             this.iconListaDeMedicos.Padding = new System.Windows.Forms.Padding(10, 0, 20, 0);
             this.iconListaDeMedicos.Size = new System.Drawing.Size(220, 50);
-            this.iconListaDeMedicos.TabIndex = 4;
+            this.iconListaDeMedicos.TabIndex = 5;
             this.iconListaDeMedicos.Text = "Lista de Medicos";
             this.iconListaDeMedicos.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.iconListaDeMedicos.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -133,9 +130,10 @@ namespace FrmEntrada
             this.iconDashboard.Dock = System.Windows.Forms.DockStyle.Top;
             this.iconDashboard.FlatAppearance.BorderSize = 0;
             this.iconDashboard.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.iconDashboard.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(217)))), ((int)(((byte)(237)))), ((int)(((byte)(146)))));
-            this.iconDashboard.IconChar = FontAwesome.Sharp.IconChar.ChartBar;
-            this.iconDashboard.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(217)))), ((int)(((byte)(237)))), ((int)(((byte)(146)))));
+            this.iconDashboard.Font = new System.Drawing.Font("Segoe UI", 9.818182F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.iconDashboard.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(70)))), ((int)(((byte)(116)))));
+            this.iconDashboard.IconChar = FontAwesome.Sharp.IconChar.Clock;
+            this.iconDashboard.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(70)))), ((int)(((byte)(116)))));
             this.iconDashboard.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.iconDashboard.IconSize = 40;
             this.iconDashboard.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -144,7 +142,7 @@ namespace FrmEntrada
             this.iconDashboard.Padding = new System.Windows.Forms.Padding(10, 0, 20, 0);
             this.iconDashboard.Size = new System.Drawing.Size(220, 50);
             this.iconDashboard.TabIndex = 3;
-            this.iconDashboard.Text = "Dashboard";
+            this.iconDashboard.Text = "Lista de Espera";
             this.iconDashboard.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.iconDashboard.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.iconDashboard.UseVisualStyleBackColor = true;
@@ -161,7 +159,7 @@ namespace FrmEntrada
             // 
             // btnLogo
             // 
-            this.btnLogo.Image = global::Interfaz.Properties.Resources.kisspng_data_analysis_predictive_analytics_business_administrator_5acd70937605e1_5624598715234131394834;
+            this.btnLogo.Image = global::Interfaz.Properties.Resources.kisspng_medicine_staff_of_hermes_symbol_clip_art_hermes_5ac75ec52c3953_2370121915230153651812;
             this.btnLogo.Location = new System.Drawing.Point(0, 0);
             this.btnLogo.Name = "btnLogo";
             this.btnLogo.Size = new System.Drawing.Size(220, 130);
@@ -172,7 +170,7 @@ namespace FrmEntrada
             // 
             // barraDeTitulo
             // 
-            this.barraDeTitulo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(78)))), ((int)(((byte)(119)))));
+            this.barraDeTitulo.BackColor = System.Drawing.Color.White;
             this.barraDeTitulo.Controls.Add(this.labelInicio);
             this.barraDeTitulo.Controls.Add(this.iconhijo);
             this.barraDeTitulo.Dock = System.Windows.Forms.DockStyle.Top;
@@ -183,58 +181,241 @@ namespace FrmEntrada
             // 
             // labelInicio
             // 
+            this.labelInicio.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.labelInicio.AutoSize = true;
-            this.labelInicio.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(217)))), ((int)(((byte)(237)))), ((int)(((byte)(146)))));
-            this.labelInicio.Location = new System.Drawing.Point(85, 37);
+            this.labelInicio.Font = new System.Drawing.Font("Segoe UI", 20.29091F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.labelInicio.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(71)))), ((int)(((byte)(115)))));
+            this.labelInicio.Location = new System.Drawing.Point(266, 22);
             this.labelInicio.Name = "labelInicio";
-            this.labelInicio.Size = new System.Drawing.Size(41, 19);
+            this.labelInicio.Size = new System.Drawing.Size(97, 45);
             this.labelInicio.TabIndex = 2;
             this.labelInicio.Text = "Inicio";
-            this.labelInicio.Click += new System.EventHandler(this.label1_Click);
             // 
             // iconhijo
             // 
+            this.iconhijo.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.iconhijo.BackColor = System.Drawing.Color.Transparent;
-            this.iconhijo.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(217)))), ((int)(((byte)(237)))), ((int)(((byte)(146)))));
+            this.iconhijo.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(71)))), ((int)(((byte)(115)))));
             this.iconhijo.IconChar = FontAwesome.Sharp.IconChar.Home;
-            this.iconhijo.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(217)))), ((int)(((byte)(237)))), ((int)(((byte)(146)))));
+            this.iconhijo.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(71)))), ((int)(((byte)(115)))));
             this.iconhijo.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.iconhijo.IconSize = 50;
-            this.iconhijo.Location = new System.Drawing.Point(29, 22);
+            this.iconhijo.Location = new System.Drawing.Point(210, 24);
             this.iconhijo.Name = "iconhijo";
             this.iconhijo.Size = new System.Drawing.Size(50, 50);
             this.iconhijo.TabIndex = 2;
             this.iconhijo.TabStop = false;
-            this.iconhijo.Click += new System.EventHandler(this.iconPictureBox1_Click);
             // 
             // panelSombraSuperior
             // 
-            this.panelSombraSuperior.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(16)))), ((int)(((byte)(52)))), ((int)(((byte)(79)))));
+            this.panelSombraSuperior.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(219)))), ((int)(((byte)(233)))), ((int)(((byte)(247)))));
             this.panelSombraSuperior.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelSombraSuperior.Location = new System.Drawing.Point(220, 80);
             this.panelSombraSuperior.Name = "panelSombraSuperior";
             this.panelSombraSuperior.Size = new System.Drawing.Size(662, 4);
             this.panelSombraSuperior.TabIndex = 2;
             // 
-            // panelDashboard
+            // panel2
             // 
-            this.panelDashboard.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(78)))), ((int)(((byte)(119)))));
-            this.panelDashboard.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelDashboard.Location = new System.Drawing.Point(220, 84);
-            this.panelDashboard.Name = "panelDashboard";
-            this.panelDashboard.Size = new System.Drawing.Size(662, 472);
-            this.panelDashboard.TabIndex = 5;
+            this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(219)))), ((int)(((byte)(233)))), ((int)(((byte)(247)))));
+            this.panel2.Dock = System.Windows.Forms.DockStyle.Left;
+            this.panel2.Location = new System.Drawing.Point(220, 84);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(4, 472);
+            this.panel2.TabIndex = 3;
+            // 
+            // PanelEscritorio
+            // 
+            this.PanelEscritorio.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(255)))));
+            this.PanelEscritorio.Controls.Add(this.comboBoxPaciente);
+            this.PanelEscritorio.Controls.Add(this.comboBoxMedico);
+            this.PanelEscritorio.Controls.Add(this.iconButton1);
+            this.PanelEscritorio.Controls.Add(this.iconButtonFinalizar);
+            this.PanelEscritorio.Controls.Add(this.iconPictureBox2);
+            this.PanelEscritorio.Controls.Add(this.label2);
+            this.PanelEscritorio.Controls.Add(this.label1);
+            this.PanelEscritorio.Controls.Add(this.dataGridView1);
+            this.PanelEscritorio.Controls.Add(this.labelFecha);
+            this.PanelEscritorio.Controls.Add(this.labelHora);
+            this.PanelEscritorio.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.PanelEscritorio.Location = new System.Drawing.Point(224, 84);
+            this.PanelEscritorio.Name = "PanelEscritorio";
+            this.PanelEscritorio.Size = new System.Drawing.Size(658, 472);
+            this.PanelEscritorio.TabIndex = 4;
+            // 
+            // comboBoxPaciente
+            // 
+            this.comboBoxPaciente.FormattingEnabled = true;
+            this.comboBoxPaciente.Location = new System.Drawing.Point(364, 374);
+            this.comboBoxPaciente.Name = "comboBoxPaciente";
+            this.comboBoxPaciente.Size = new System.Drawing.Size(139, 27);
+            this.comboBoxPaciente.TabIndex = 16;
+            // 
+            // comboBoxMedico
+            // 
+            this.comboBoxMedico.FormattingEnabled = true;
+            this.comboBoxMedico.Location = new System.Drawing.Point(73, 374);
+            this.comboBoxMedico.Name = "comboBoxMedico";
+            this.comboBoxMedico.Size = new System.Drawing.Size(139, 27);
+            this.comboBoxMedico.TabIndex = 8;
+            // 
+            // iconButton1
+            // 
+            this.iconButton1.FlatAppearance.BorderSize = 0;
+            this.iconButton1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.iconButton1.Font = new System.Drawing.Font("Segoe UI", 9.818182F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.iconButton1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(70)))), ((int)(((byte)(116)))));
+            this.iconButton1.IconChar = FontAwesome.Sharp.IconChar.CalendarPlus;
+            this.iconButton1.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(70)))), ((int)(((byte)(116)))));
+            this.iconButton1.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.iconButton1.IconSize = 40;
+            this.iconButton1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.iconButton1.Location = new System.Drawing.Point(73, 419);
+            this.iconButton1.Name = "iconButton1";
+            this.iconButton1.Padding = new System.Windows.Forms.Padding(10, 0, 20, 0);
+            this.iconButton1.Size = new System.Drawing.Size(151, 50);
+            this.iconButton1.TabIndex = 15;
+            this.iconButton1.Text = "Apuntar";
+            this.iconButton1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.iconButton1.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.iconButton1.UseVisualStyleBackColor = true;
+            // 
+            // iconButtonFinalizar
+            // 
+            this.iconButtonFinalizar.FlatAppearance.BorderSize = 0;
+            this.iconButtonFinalizar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.iconButtonFinalizar.Font = new System.Drawing.Font("Segoe UI", 9.818182F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.iconButtonFinalizar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(70)))), ((int)(((byte)(116)))));
+            this.iconButtonFinalizar.IconChar = FontAwesome.Sharp.IconChar.CalendarTimes;
+            this.iconButtonFinalizar.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(70)))), ((int)(((byte)(116)))));
+            this.iconButtonFinalizar.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.iconButtonFinalizar.IconSize = 40;
+            this.iconButtonFinalizar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.iconButtonFinalizar.Location = new System.Drawing.Point(364, 419);
+            this.iconButtonFinalizar.Name = "iconButtonFinalizar";
+            this.iconButtonFinalizar.Padding = new System.Windows.Forms.Padding(10, 0, 20, 0);
+            this.iconButtonFinalizar.Size = new System.Drawing.Size(151, 50);
+            this.iconButtonFinalizar.TabIndex = 14;
+            this.iconButtonFinalizar.Text = "Finalizar";
+            this.iconButtonFinalizar.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.iconButtonFinalizar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.iconButtonFinalizar.UseVisualStyleBackColor = true;
+            // 
+            // iconPictureBox2
+            // 
+            this.iconPictureBox2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(255)))));
+            this.iconPictureBox2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(70)))), ((int)(((byte)(116)))));
+            this.iconPictureBox2.IconChar = FontAwesome.Sharp.IconChar.Ambulance;
+            this.iconPictureBox2.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(70)))), ((int)(((byte)(116)))));
+            this.iconPictureBox2.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.iconPictureBox2.IconSize = 113;
+            this.iconPictureBox2.Location = new System.Drawing.Point(6, 16);
+            this.iconPictureBox2.Name = "iconPictureBox2";
+            this.iconPictureBox2.Size = new System.Drawing.Size(113, 115);
+            this.iconPictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.iconPictureBox2.TabIndex = 11;
+            this.iconPictureBox2.TabStop = false;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Roboto", 18.32727F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point);
+            this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(70)))), ((int)(((byte)(116)))));
+            this.label2.Location = new System.Drawing.Point(206, 118);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(235, 34);
+            this.label2.TabIndex = 12;
+            this.label2.Text = "Consultas Activas";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Roboto", 28.14545F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point);
+            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(70)))), ((int)(((byte)(116)))));
+            this.label1.Location = new System.Drawing.Point(125, 20);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(282, 52);
+            this.label1.TabIndex = 10;
+            this.label1.Text = "¡Bienvenidos!";
+            // 
+            // dataGridView1
+            // 
+            this.dataGridView1.AllowUserToAddRows = false;
+            this.dataGridView1.AllowUserToDeleteRows = false;
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Medico,
+            this.Doctor});
+            this.dataGridView1.Location = new System.Drawing.Point(30, 158);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.ReadOnly = true;
+            this.dataGridView1.RowHeadersWidth = 47;
+            this.dataGridView1.RowTemplate.Height = 28;
+            this.dataGridView1.Size = new System.Drawing.Size(604, 210);
+            this.dataGridView1.TabIndex = 13;
+            // 
+            // labelFecha
+            // 
+            this.labelFecha.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.labelFecha.AutoSize = true;
+            this.labelFecha.Font = new System.Drawing.Font("Segoe UI", 13.74545F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.labelFecha.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(71)))), ((int)(((byte)(115)))));
+            this.labelFecha.Location = new System.Drawing.Point(550, 438);
+            this.labelFecha.Name = "labelFecha";
+            this.labelFecha.Size = new System.Drawing.Size(68, 30);
+            this.labelFecha.TabIndex = 8;
+            this.labelFecha.Text = "label1";
+            // 
+            // labelHora
+            // 
+            this.labelHora.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.labelHora.AutoSize = true;
+            this.labelHora.Font = new System.Drawing.Font("Segoe UI", 13.74545F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.labelHora.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(71)))), ((int)(((byte)(115)))));
+            this.labelHora.Location = new System.Drawing.Point(550, 409);
+            this.labelHora.Name = "labelHora";
+            this.labelHora.Size = new System.Drawing.Size(68, 30);
+            this.labelHora.TabIndex = 8;
+            this.labelHora.Text = "label1";
+            // 
+            // horaFecha
+            // 
+            this.horaFecha.Enabled = true;
+            this.horaFecha.Tick += new System.EventHandler(this.horaFecha_Tick);
+            // 
+            // Fecha
+            // 
+            this.Fecha.Enabled = true;
+            this.Fecha.Tick += new System.EventHandler(this.Fecha_Tick);
+            // 
+            // Medico
+            // 
+            this.Medico.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Medico.HeaderText = "Medico";
+            this.Medico.MinimumWidth = 6;
+            this.Medico.Name = "Medico";
+            this.Medico.ReadOnly = true;
+            // 
+            // Doctor
+            // 
+            this.Doctor.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Doctor.HeaderText = "Paciente";
+            this.Doctor.MinimumWidth = 6;
+            this.Doctor.Name = "Doctor";
+            this.Doctor.ReadOnly = true;
             // 
             // frmInicio
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 19F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(882, 556);
-            this.Controls.Add(this.panelDashboard);
+            this.Controls.Add(this.PanelEscritorio);
+            this.Controls.Add(this.panel2);
             this.Controls.Add(this.panelSombraSuperior);
             this.Controls.Add(this.barraDeTitulo);
             this.Controls.Add(this.panelMenu);
             this.Name = "frmInicio";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.frmInicio_Load);
             this.panelMenu.ResumeLayout(false);
@@ -243,6 +424,10 @@ namespace FrmEntrada
             this.barraDeTitulo.ResumeLayout(false);
             this.barraDeTitulo.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.iconhijo)).EndInit();
+            this.PanelEscritorio.ResumeLayout(false);
+            this.PanelEscritorio.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.iconPictureBox2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -250,8 +435,6 @@ namespace FrmEntrada
         #endregion
 
         private System.Windows.Forms.Panel panelMenu;
-        private FontAwesome.Sharp.IconButton iconHistorial;
-        private FontAwesome.Sharp.IconButton iconListaDeEspera;
         private FontAwesome.Sharp.IconButton iconListaDeMedicos;
         private FontAwesome.Sharp.IconButton iconDashboard;
         private System.Windows.Forms.Panel panelLogo;
@@ -260,7 +443,23 @@ namespace FrmEntrada
         private FontAwesome.Sharp.IconPictureBox iconhijo;
         private System.Windows.Forms.Label labelInicio;
         private System.Windows.Forms.Panel panelSombraSuperior;
-        private System.Windows.Forms.Panel panelDashboard;
+        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.Panel PanelEscritorio;
+        private FontAwesome.Sharp.IconButton iconHistorial;
+        private System.Windows.Forms.Timer horaFecha;
+        private System.Windows.Forms.Label labelFecha;
+        private System.Windows.Forms.Timer Fecha;
+        private System.Windows.Forms.Label labelHora;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.DataGridView dataGridView1;
+        private FontAwesome.Sharp.IconPictureBox iconPictureBox2;
+        private System.Windows.Forms.Label label1;
+        private FontAwesome.Sharp.IconButton iconButton1;
+        private FontAwesome.Sharp.IconButton iconButtonFinalizar;
+        private System.Windows.Forms.ComboBox comboBoxPaciente;
+        private System.Windows.Forms.ComboBox comboBoxMedico;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Medico;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Doctor;
     }
 }
 

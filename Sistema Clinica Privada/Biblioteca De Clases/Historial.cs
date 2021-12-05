@@ -4,10 +4,18 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Biblioteca_De_Clases
+namespace BibliotecaDeClases
 {
     class Historial
     {
+        private List<Medico> listaMedicosPacientesAtendidos;
+        private string medicoConMasPacientes;
+        private string medicoConMenosPacientes;
+        private string especialidadConMasConsultas;
 
+        public Historial(List<Medico> listaMedicosPacientesAtendidos)
+        {
+            this.listaMedicosPacientesAtendidos = listaMedicosPacientesAtendidos;
+        }
     }
 }

@@ -4,10 +4,20 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Biblioteca_De_Clases
+namespace BibliotecaDeClases
 {
     class Consulta
     {
+        private Paciente paciente;
+        private Medico medico;
+        private string resultado;
+        private bool estadoConsulta;
 
+        public Consulta(Paciente paciente, Medico medico)
+        {
+            this.paciente = paciente;
+            this.medico = medico;
+            estadoConsulta = true;
+        }
     }
 }

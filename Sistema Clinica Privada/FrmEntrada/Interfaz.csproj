@@ -11,6 +11,13 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\Biblioteca De Clases\BibliotecaDeClases.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="Formularios\FormListaDeEspera.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="Properties\Resources.Designer.cs">
       <DesignTime>True</DesignTime>
       <AutoGen>True</AutoGen>

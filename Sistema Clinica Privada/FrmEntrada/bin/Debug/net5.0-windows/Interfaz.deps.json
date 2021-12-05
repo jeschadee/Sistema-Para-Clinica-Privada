@@ -8,6 +8,7 @@
     ".NETCoreApp,Version=v5.0": {
       "Interfaz/1.0.0": {
         "dependencies": {
+          "BibliotecaDeClases": "1.0.0",
           "FontAwesome.Sharp": "5.15.4"
         },
         "runtime": {
@@ -20,6 +21,11 @@
             "assemblyVersion": "5.15.4.0",
             "fileVersion": "5.15.4.0"
           }
+        }
+      },
+      "BibliotecaDeClases/1.0.0": {
+        "runtime": {
+          "BibliotecaDeClases.dll": {}
         }
       }
     }
@@ -36,6 +42,11 @@
       "sha512": "sha512-IqJe1IQas6tSVXMNHTWA/NJeP7azyxDTk6DCB+NMXOOED2F07IYI9nvfB1HP83r4yh5cntZoTdwSpIraA5XoXw==",
       "path": "fontawesome.sharp/5.15.4",
       "hashPath": "fontawesome.sharp.5.15.4.nupkg.sha512"
+    },
+    "BibliotecaDeClases/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
     }
   }
 }

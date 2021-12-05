@@ -19,3 +19,8 @@ C:\Users\W10-PC\Desktop\Programacion\Codigos\Sistema-Para-Clinica-Privada\Sistem
 C:\Users\W10-PC\Desktop\Programacion\Codigos\Sistema-Para-Clinica-Privada\Sistema Clinica Privada\FrmEntrada\obj\Debug\net5.0-windows\ref\Interfaz.dll
 C:\Users\W10-PC\Desktop\Programacion\Codigos\Sistema-Para-Clinica-Privada\Sistema Clinica Privada\FrmEntrada\obj\Debug\net5.0-windows\Interfaz.pdb
 C:\Users\W10-PC\Desktop\Programacion\Codigos\Sistema-Para-Clinica-Privada\Sistema Clinica Privada\FrmEntrada\obj\Debug\net5.0-windows\Interfaz.genruntimeconfig.cache
+C:\Users\W10-PC\Desktop\Programacion\Codigos\Sistema-Para-Clinica-Privada\Sistema Clinica Privada\FrmEntrada\obj\Debug\net5.0-windows\FrmEntrada.FormHistorial.resources
+C:\Users\W10-PC\Desktop\Programacion\Codigos\Sistema-Para-Clinica-Privada\Sistema Clinica Privada\FrmEntrada\obj\Debug\net5.0-windows\FrmEntrada.FormListaDeEspera.resources
+C:\Users\W10-PC\Desktop\Programacion\Codigos\Sistema-Para-Clinica-Privada\Sistema Clinica Privada\FrmEntrada\bin\Debug\net5.0-windows\BibliotecaDeClases.dll
+C:\Users\W10-PC\Desktop\Programacion\Codigos\Sistema-Para-Clinica-Privada\Sistema Clinica Privada\FrmEntrada\bin\Debug\net5.0-windows\BibliotecaDeClases.pdb
+C:\Users\W10-PC\Desktop\Programacion\Codigos\Sistema-Para-Clinica-Privada\Sistema Clinica Privada\FrmEntrada\obj\Debug\net5.0-windows\FrmEntrada.ListaDeMedicos.resources

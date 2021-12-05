@@ -4,18 +4,30 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Biblioteca_De_Clases
+namespace BibliotecaDeClases
 {
-    class Paciente : Persona
+    public class Paciente : Persona
     {
-        public enum especialidad
+        private long dni;
+        private int edad;
+        private string obraSocial;        
+        public Paciente(string nombre, string apellido, bool estado, int edad, long dni, string obraSocial) : base(nombre, apellido, estado)
         {
-            Internista,
-            Cardiologo,
-            Radiologo,
-            Neumonologo,
-            Urologo
-        };
+            this.obraSocial = obraSocial;
+            this.edad = edad;
+            this.dni = dni;
+        }
+        public long Dni { get => dni;}
+        public int Edad { get => edad;}
+        public string ObraSocial { get => obraSocial;}
 
+        public override bool Equals(object obj)
+        {
+            return this.Dni == ((Paciente)obj).Dni;
+        }
+        public override int GetHashCode()
+        {
+            return Dni.GetHashCode();
+        }
     }
 }

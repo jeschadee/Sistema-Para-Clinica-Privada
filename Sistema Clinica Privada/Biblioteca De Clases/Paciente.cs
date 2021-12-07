@@ -13,13 +13,14 @@ namespace BibliotecaDeClases
         private string obraSocial;        
         public Paciente(string nombre, string apellido, bool estado, int edad, long dni, string obraSocial) : base(nombre, apellido, estado)
         {
-            this.obraSocial = obraSocial;
-            this.edad = edad;
-            this.dni = dni;
+            ObraSocial = obraSocial;
+            Edad = edad;
+            Dni = dni;
         }
-        public long Dni { get => dni;}
-        public int Edad { get => edad;}
-        public string ObraSocial { get => obraSocial;}
+
+        public long Dni { get => dni; set => dni = value; }
+        public int Edad { get => edad; set => edad = value; }
+        public string ObraSocial { get => obraSocial; set => obraSocial = value; }
 
         public override bool Equals(object obj)
         {

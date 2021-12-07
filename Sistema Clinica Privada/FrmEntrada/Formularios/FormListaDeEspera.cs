@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using FontAwesome.Sharp;
 using BibliotecaDeClases;
+using System.Text.RegularExpressions;
 namespace FrmEntrada
 {
     public partial class FormListaDeEspera : Form
@@ -19,11 +20,15 @@ namespace FrmEntrada
         int edad;
         long dni;
         private IconButton currentBtn;
-        public FormListaDeEspera(IconButton currentBtn)
+
+        public Clinica Clinica { get => clinica; }
+
+        public FormListaDeEspera(IconButton currentBtn, List<Paciente> listaPaciente)
         {
             InitializeComponent();
             clinica = new Clinica();
             this.currentBtn = currentBtn;
+            clinica.ListaDeEspera = listaPaciente;
         }
         private void BotonDesactivado()
         {
@@ -42,11 +47,18 @@ namespace FrmEntrada
             //Validamos que los datos sean correctos
             if(ValidarPaciente())
             {
-                //Agregamos Informacion                
-                clinica.CrearPaciente(textBoxNombre.Text,textBoxApellido.Text,edad,dni,comboBoxOS.Text);
+                try
+                {
+                    //Agregamos Informacion                
+                    clinica.CrearPaciente(textBoxNombre.Text, textBoxApellido.Text, edad, dni, comboBoxOS.Text);
+                }
+                catch(Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
                 dataGridViewPacientes.Rows.Clear();
                 dataGridViewPacientes.Refresh();
-                foreach (Paciente paciente in clinica.listaDeEspera)
+                foreach (Paciente paciente in clinica.ListaDeEspera)
                 {
                     int n = dataGridViewPacientes.Rows.Add();
                     dataGridViewPacientes.Rows[n].Cells[0].Value = paciente.Nombre;
@@ -69,10 +81,11 @@ namespace FrmEntrada
             comboBoxOS.Text = "";
         }
         private bool ValidarPaciente()
-        {            
-            if(!string.IsNullOrEmpty(textBoxNombre.Text))
+        {
+            Regex valor = new Regex(@"^[a-zA-Z]+$");
+            if (!string.IsNullOrEmpty(textBoxNombre.Text) && valor.IsMatch(textBoxNombre.Text)) 
             {
-                if(!string.IsNullOrEmpty(textBoxApellido.Text))
+                if(!string.IsNullOrEmpty(textBoxApellido.Text)&& valor.IsMatch(textBoxApellido.Text))
                 {
                     if((int.TryParse(textBoxEdad.Text, out edad) || !(textBoxEdad.Text == ""))&& edad>0 && edad <=130)
                     {
@@ -120,10 +133,7 @@ namespace FrmEntrada
 
         private void FormListaDeEspera_Load(object sender, EventArgs e)
         {
-            clinica.CrearPaciente("Dayana", "Mendoza", 35, 42557785, "Cobertura Completa");
-            clinica.CrearPaciente("Wiliam", "Smith", 50, 50759635, "No Tiene");
-
-            foreach (Paciente paciente in clinica.listaDeEspera)
+            foreach (Paciente paciente in clinica.ListaDeEspera)
             {
                 int n = dataGridViewPacientes.Rows.Add();
                 dataGridViewPacientes.Rows[n].Cells[0].Value = paciente.Nombre;

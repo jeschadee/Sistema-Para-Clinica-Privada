@@ -8,15 +8,15 @@ namespace BibliotecaDeClases
         private string apellido;
         private bool estado;
 
-        public string Nombre { get => nombre; }
-        public string Apellido { get => apellido;}
-        public bool Estado { get => estado;}
-
         public Persona(string nombre, string apellido, bool estado)
         {
-            this.nombre = nombre;
-            this.apellido = apellido;
-            this.estado = estado;
+            this.Nombre = nombre;
+            this.Apellido = apellido;
+            this.Estado = estado;
         }
+
+        public string Nombre { get => nombre; set => nombre = value; }
+        public string Apellido { get => apellido; set => apellido = value; }
+        public bool Estado { get => estado; set => estado = value; }
     }
 }

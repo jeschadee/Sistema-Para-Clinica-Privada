@@ -210,6 +210,7 @@ namespace FrmEntrada
             // 
             // comboBoxOS
             // 
+            this.comboBoxOS.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxOS.FormattingEnabled = true;
             this.comboBoxOS.Items.AddRange(new object[] {
             "No Tiene",

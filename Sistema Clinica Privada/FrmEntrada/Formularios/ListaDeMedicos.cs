@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using BibliotecaDeClases;
 using FontAwesome.Sharp;
-
+using System.Text.RegularExpressions;
 namespace FrmEntrada
 {
     public partial class ListaDeMedicos : Form
@@ -17,11 +17,15 @@ namespace FrmEntrada
         private Clinica clinica;
         private ErrorProvider erp = new ErrorProvider();
         private IconButton currentBtn;
-        public ListaDeMedicos(IconButton iconButton)
+
+        public Clinica Clinica { get => clinica; set => clinica = value; }
+
+        public ListaDeMedicos(IconButton iconButton, List<Medico> listaDeMedicos)
         {
             InitializeComponent();
             clinica = new Clinica();
             this.currentBtn = iconButton;
+            clinica.ListaDeMedico = listaDeMedicos;
         }
         private void BotonDesactivado()
         {
@@ -35,76 +39,107 @@ namespace FrmEntrada
                 currentBtn.ImageAlign = ContentAlignment.MiddleLeft;
             }
         }
+        public void LimpiarCeldas()
+        {
+            textBoxNombre.Text = "";
+            textBoxApellido.Text = "";
+            textBoxEspecialidad.Text = "";
+        }
 
         private void ListaDeMedicos_Load(object sender, EventArgs e)
         {
-            clinica.CrearMedico("Jesus", "Colmenares", "Cirujano Plastico");
-            clinica.CrearMedico("Sebastian", "Castellanos", "Psiquiatra");
-            clinica.CrearMedico("Mia", "Kalifa", "Internista");
-
-            foreach (Medico medico in clinica.listaDeMedico)
+            foreach (Medico medico in clinica.ListaDeMedico)
             {
                 int n = dataGridViewMedicos.Rows.Add();
                 dataGridViewMedicos.Rows[n].Cells[0].Value = medico.Nombre;
                 dataGridViewMedicos.Rows[n].Cells[1].Value = medico.Apellido;
                 dataGridViewMedicos.Rows[n].Cells[2].Value = medico.Especialidad;
-                dataGridViewMedicos.Rows[n].Cells[3].Value = medico.Estado;
+                if(medico.Estado == true)
+                {
+                    dataGridViewMedicos.Rows[n].Cells[3].Value = "Si";
+                }
+                else
+                {
+                    dataGridViewMedicos.Rows[n].Cells[3].Value = "No";
+                }
             }
-
+            LimpiarCeldas();
         }
 
         private void BotonInsertar_Click(object sender, EventArgs e)
         {
-            if(ValidarMedico())
+            try
             {
-                //Agregamos informacion
-                clinica.CrearMedico(textBoxNombre.Text, textBoxApellido.Text, textBoxEspecialidad.Text);
-                //Refrescamos el datagridview
-                dataGridViewMedicos.Rows.Clear();
-                dataGridViewMedicos.Refresh();
-                //Volvemos a imprimir la lista con los datos actualizados
-                foreach(Medico medico in clinica.listaDeMedico)
-                {
-                    int n = dataGridViewMedicos.Rows.Add();
-                    dataGridViewMedicos.Rows[n].Cells[0].Value = medico.Nombre;
-                    dataGridViewMedicos.Rows[n].Cells[1].Value = medico.Apellido;
-                    dataGridViewMedicos.Rows[n].Cells[2].Value = medico.Especialidad;
-                    dataGridViewMedicos.Rows[n].Cells[3].Value = medico.Estado;
+                
+                if (ValidarMedico())
+                {   //Agregamos informacion
+                    clinica.CrearMedico(textBoxNombre.Text, textBoxApellido.Text, textBoxEspecialidad.Text);
+                    //Refrescamos el datagridview
+                    dataGridViewMedicos.Rows.Clear();
+                    dataGridViewMedicos.Refresh();
+                    //Volvemos a imprimir la lista con los datos actualizados
+                    foreach (Medico medico in clinica.ListaDeMedico)
+                    {
+                        int n = dataGridViewMedicos.Rows.Add();
+                        dataGridViewMedicos.Rows[n].Cells[0].Value = medico.Nombre;
+                        dataGridViewMedicos.Rows[n].Cells[1].Value = medico.Apellido;
+                        dataGridViewMedicos.Rows[n].Cells[2].Value = medico.Especialidad;
+                        dataGridViewMedicos.Rows[n].Cells[3].Value = medico.Estado;
+                    }
+                    //Dejamos en blanco las casillas de texto
+                    LimpiarCeldas();
                 }
-                //Dejamos en blanco las casillas de texto
-                textBoxNombre.Text = "";
-                textBoxApellido.Text = "";
-                textBoxEspecialidad.Text = "";
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
             }
         }
         private bool ValidarMedico()
         {
-            if (!string.IsNullOrEmpty(textBoxNombre.Text))
+            Regex valor = new Regex(@"^[a-zA-Z]+$");
+            if(valor.IsMatch(textBoxApellido.Text))
             {
-                if (!string.IsNullOrEmpty(textBoxApellido.Text))
+                if(valor.IsMatch(textBoxNombre.Text))
                 {
-                    if (!string.IsNullOrEmpty(textBoxEspecialidad.Text))
+                    if (!string.IsNullOrEmpty(textBoxNombre.Text))
                     {
-                        erp.SetError(textBoxEspecialidad, "");
-                        erp.SetError(textBoxApellido, "");
-                        erp.SetError(textBoxNombre, "");
-                        return true;
+                        if (!string.IsNullOrEmpty(textBoxApellido.Text))
+                        {
+                            if (!string.IsNullOrEmpty(textBoxEspecialidad.Text))
+                            {
+                                erp.SetError(textBoxEspecialidad, "");
+                                erp.SetError(textBoxApellido, "");
+                                erp.SetError(textBoxNombre, "");
+                                return true;
+                            }
+                            else
+                            {
+                                erp.SetError(textBoxEspecialidad, "Ingrese una edad valida");
+                                return false;
+                            }
+                        }
+                        else
+                        {
+                            erp.SetError(textBoxApellido, "Ingrese un apellido");
+                            return false;
+                        }
                     }
                     else
                     {
-                        erp.SetError(textBoxEspecialidad, "Ingrese una edad valida");
+                        erp.SetError(textBoxNombre, "Ingrese un nombre");
                         return false;
                     }
                 }
                 else
                 {
-                    erp.SetError(textBoxApellido, "Ingrese un apellido");
+                    erp.SetError(textBoxNombre, "Ingrese letras");
                     return false;
                 }
             }
             else
             {
-                erp.SetError(textBoxNombre, "Ingrese un nombre");
+                erp.SetError(textBoxApellido, "Ingrese letras");
                 return false;
             }
         }

@@ -6,51 +6,74 @@ using System.Threading.Tasks;
 
 namespace BibliotecaDeClases
 {
-    public enum especialidad
-    {
-        Internista,
-        Cardiologo,
-        Radiologo,
-        Neumonologo,
-        Urologo
-    }
-    public enum obraSocial
-    {
-        NoTiene,
-        CoberturaBasica,
-        CoberturaCompleta
-    }
     public class Clinica
     {
-        public List<Paciente> listaDeEspera;
-        public List<Medico> listaDeMedico;
+        private List<Paciente> listaDeEspera;        
+        private List<Medico> listaDeMedico;
+        private List<Consulta> listaDeConsultas;
+
+        public List<Paciente> ListaDeEspera { get => listaDeEspera; set => listaDeEspera = value; }
+        public List<Medico> ListaDeMedico { get => listaDeMedico; set => listaDeMedico = value; }
+        public List<Consulta> ListaDeConsultas { get => listaDeConsultas; set => listaDeConsultas = value; }
 
         public Clinica()
         {
-            listaDeEspera = new List<Paciente>();
-            listaDeMedico = new List<Medico>();
+            ListaDeEspera = new List<Paciente>();
+            ListaDeMedico = new List<Medico>();
         }
         public void CrearMedico(string nombre, string apellido, string especialidad)
         {
             try
             {
-                Medico medico = new Medico(nombre, apellido, false, especialidad);
-                AgregarMedico(listaDeMedico, medico);
+                Medico medico = new(nombre, apellido, false, especialidad);
+                AgregarMedico(medico);
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
+        public void CrearConsulta(Medico medico, Paciente paciente)
+        {
+            try
+            {
+                if(medico.Estado == true)
+                {
+                    medico.ListaDeEsperaDelMedico.Add(paciente);
+                }
+                else
+                {
+                    Consulta consulta = new(medico, paciente);
+                    AgregarConsulta(consulta);
+                    medico.Estado = true;
+                    paciente.Estado = true;
+                }
             }
             catch(Exception)
             {
                 throw;
             }
         }
-        public void AgregarMedico(List<Medico> listaMedico, Medico medico)
+        public void AgregarConsulta(Consulta consulta)
         {
-            if (listaMedico.Contains(medico))
+            if(ListaDeConsultas.Contains(consulta))
+            {
+                throw new MiExepcion("Esta consulta ya esta activa");
+            }
+            else
+            {
+                ListaDeConsultas.Add(consulta);
+            }
+        }
+        public void AgregarMedico(Medico medico)
+        {
+            if (ListaDeMedico.Contains(medico))
             {
                 throw new MiExepcion("El nombre y apellido ingresado ya lo contiene un medico registrado");
             }
             else
             {
-                listaDeMedico.Add(medico);
+                ListaDeMedico.Add(medico);
             }
         }
 
@@ -58,28 +81,25 @@ namespace BibliotecaDeClases
         {
             try
             {
-                Paciente paciente = new Paciente(nombre, apellido, false, edad, dni, obraSocial);
-                AgregarPaciente(listaDeEspera, paciente);
+                Paciente paciente = new(nombre, apellido, false, edad, dni, obraSocial);
+                AgregarPaciente(paciente);
             }
-            catch(Exception)
+            catch (Exception)
             {
-                throw ;
+                throw;
             }
         }
-        public void AgregarPaciente(List<Paciente> listaPaciente, Paciente paciente)
+        public void AgregarPaciente(Paciente paciente)
         {
-            if(listaPaciente.Contains(paciente))
+            if (listaDeEspera.Contains(paciente))
             {
-                throw new MiExepcion("El dni ingresado ya lo contiene un paciente registrado"); 
+                throw new MiExepcion("El dni ingresado ya lo contiene un paciente registrado");
             }
             else
             {
-                listaDeEspera.Add(paciente);
+                ListaDeEspera.Add(paciente);
             }
         }
 
-        
-
-
-    }    
+    }
 }

@@ -235,7 +235,7 @@ namespace FrmEntrada
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 19F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(255)))));
-            this.ClientSize = new System.Drawing.Size(640, 428);
+            this.ClientSize = new System.Drawing.Size(640, 498);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.dataGridViewMedicos);
             this.Controls.Add(this.BotonConsulta);

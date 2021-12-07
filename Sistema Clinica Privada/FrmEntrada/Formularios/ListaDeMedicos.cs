@@ -44,17 +44,16 @@ namespace FrmEntrada
             textBoxNombre.Text = "";
             textBoxApellido.Text = "";
             textBoxEspecialidad.Text = "";
-        }
-
-        private void ListaDeMedicos_Load(object sender, EventArgs e)
-        {
+            dataGridViewMedicos.Rows.Clear();
+            dataGridViewMedicos.Refresh();
+            //Volvemos a imprimir la lista con los datos actualizados
             foreach (Medico medico in clinica.ListaDeMedico)
             {
                 int n = dataGridViewMedicos.Rows.Add();
                 dataGridViewMedicos.Rows[n].Cells[0].Value = medico.Nombre;
                 dataGridViewMedicos.Rows[n].Cells[1].Value = medico.Apellido;
                 dataGridViewMedicos.Rows[n].Cells[2].Value = medico.Especialidad;
-                if(medico.Estado == true)
+                if (medico.Estado == true)
                 {
                     dataGridViewMedicos.Rows[n].Cells[3].Value = "Si";
                 }
@@ -63,6 +62,12 @@ namespace FrmEntrada
                     dataGridViewMedicos.Rows[n].Cells[3].Value = "No";
                 }
             }
+
+        }
+
+        private void ListaDeMedicos_Load(object sender, EventArgs e)
+        {
+           
             LimpiarCeldas();
         }
 
@@ -73,19 +78,7 @@ namespace FrmEntrada
                 
                 if (ValidarMedico())
                 {   //Agregamos informacion
-                    clinica.CrearMedico(textBoxNombre.Text, textBoxApellido.Text, textBoxEspecialidad.Text);
-                    //Refrescamos el datagridview
-                    dataGridViewMedicos.Rows.Clear();
-                    dataGridViewMedicos.Refresh();
-                    //Volvemos a imprimir la lista con los datos actualizados
-                    foreach (Medico medico in clinica.ListaDeMedico)
-                    {
-                        int n = dataGridViewMedicos.Rows.Add();
-                        dataGridViewMedicos.Rows[n].Cells[0].Value = medico.Nombre;
-                        dataGridViewMedicos.Rows[n].Cells[1].Value = medico.Apellido;
-                        dataGridViewMedicos.Rows[n].Cells[2].Value = medico.Especialidad;
-                        dataGridViewMedicos.Rows[n].Cells[3].Value = medico.Estado;
-                    }
+                    clinica.CrearMedico(textBoxNombre.Text, textBoxApellido.Text, textBoxEspecialidad.Text);                                    
                     //Dejamos en blanco las casillas de texto
                     LimpiarCeldas();
                 }
@@ -148,6 +141,28 @@ namespace FrmEntrada
         {
             this.Hide();
             BotonDesactivado();
+        }
+
+        private void BotonEliminar_Click(object sender, EventArgs e)
+        {
+            if (dataGridViewMedicos.CurrentCell.Value != null)
+            {
+                int posicion;
+                Medico medicoActual = null;
+                posicion = dataGridViewMedicos.CurrentCell.RowIndex;
+                foreach (Medico medico in clinica.ListaDeMedico)
+                {
+                    if (dataGridViewMedicos.Rows[posicion].Cells[0].Value.ToString() == medico.Nombre)
+                    {
+                        if (dataGridViewMedicos.Rows[posicion].Cells[1].Value.ToString() == medico.Apellido)
+                        {
+                            medicoActual = medico;
+                        }
+                    }
+                }
+                clinica.ListaDeMedico.Remove(medicoActual);
+                LimpiarCeldas();
+            }
         }
     }
 }

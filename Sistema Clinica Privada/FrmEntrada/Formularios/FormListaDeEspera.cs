@@ -56,17 +56,6 @@ namespace FrmEntrada
                 {
                     MessageBox.Show(ex.Message);
                 }
-                dataGridViewPacientes.Rows.Clear();
-                dataGridViewPacientes.Refresh();
-                foreach (Paciente paciente in clinica.ListaDeEspera)
-                {
-                    int n = dataGridViewPacientes.Rows.Add();
-                    dataGridViewPacientes.Rows[n].Cells[0].Value = paciente.Nombre;
-                    dataGridViewPacientes.Rows[n].Cells[1].Value = paciente.Apellido;
-                    dataGridViewPacientes.Rows[n].Cells[2].Value = paciente.Edad;
-                    dataGridViewPacientes.Rows[n].Cells[3].Value = paciente.Dni;
-                    dataGridViewPacientes.Rows[n].Cells[4].Value = paciente.ObraSocial;
-                }
                 //Dejamos en blanco las casillas de texto
                 LimpiarCeldas();
             }
@@ -79,6 +68,18 @@ namespace FrmEntrada
             textBoxEdad.Text = "";
             textBoxDNI.Text = "";
             comboBoxOS.Text = "";
+
+            dataGridViewPacientes.Rows.Clear();
+            dataGridViewPacientes.Refresh();
+            foreach (Paciente paciente in clinica.ListaDeEspera)
+            {
+                int n = dataGridViewPacientes.Rows.Add();
+                dataGridViewPacientes.Rows[n].Cells[0].Value = paciente.Nombre;
+                dataGridViewPacientes.Rows[n].Cells[1].Value = paciente.Apellido;
+                dataGridViewPacientes.Rows[n].Cells[2].Value = paciente.Edad;
+                dataGridViewPacientes.Rows[n].Cells[3].Value = paciente.Dni;
+                dataGridViewPacientes.Rows[n].Cells[4].Value = paciente.ObraSocial;
+            }
         }
         private bool ValidarPaciente()
         {
@@ -133,15 +134,6 @@ namespace FrmEntrada
 
         private void FormListaDeEspera_Load(object sender, EventArgs e)
         {
-            foreach (Paciente paciente in clinica.ListaDeEspera)
-            {
-                int n = dataGridViewPacientes.Rows.Add();
-                dataGridViewPacientes.Rows[n].Cells[0].Value = paciente.Nombre;
-                dataGridViewPacientes.Rows[n].Cells[1].Value = paciente.Apellido;
-                dataGridViewPacientes.Rows[n].Cells[2].Value = paciente.Edad;
-                dataGridViewPacientes.Rows[n].Cells[3].Value = paciente.Dni;
-                dataGridViewPacientes.Rows[n].Cells[4].Value = paciente.ObraSocial;
-            }
             //Dejamos en blanco las casillas de texto
             LimpiarCeldas();
         }
@@ -150,6 +142,29 @@ namespace FrmEntrada
         {
             this.Hide();
             BotonDesactivado();
+        }
+
+        private void BotonEliminar_Click(object sender, EventArgs e)
+        {            
+            if(dataGridViewPacientes.CurrentCell.Value != null)
+            {
+                int posicion;
+                Paciente pacienteActual = null;
+                posicion = dataGridViewPacientes.CurrentCell.RowIndex;
+                foreach (Paciente paciente in clinica.ListaDeEspera)
+                {
+                    if (dataGridViewPacientes.Rows[posicion].Cells[0].Value.ToString() == paciente.Nombre)
+                    {
+                        if (dataGridViewPacientes.Rows[posicion].Cells[1].Value.ToString() == paciente.Apellido)
+                        {
+                            pacienteActual = paciente;
+                        }
+                    }
+                }
+                clinica.ListaDeEspera.Remove(pacienteActual);
+                LimpiarCeldas();
+            }
+
         }
     }
 }

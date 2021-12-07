@@ -43,6 +43,7 @@ namespace FrmEntrada
             this.panelSombraSuperior = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
             this.PanelEscritorio = new System.Windows.Forms.Panel();
+            this.checkBoxMedicosEnConsulta = new System.Windows.Forms.CheckBox();
             this.comboBoxPaciente = new System.Windows.Forms.ComboBox();
             this.comboBoxMedico = new System.Windows.Forms.ComboBox();
             this.iconButton1 = new FontAwesome.Sharp.IconButton();
@@ -249,6 +250,7 @@ namespace FrmEntrada
             // PanelEscritorio
             // 
             this.PanelEscritorio.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(255)))));
+            this.PanelEscritorio.Controls.Add(this.checkBoxMedicosEnConsulta);
             this.PanelEscritorio.Controls.Add(this.comboBoxPaciente);
             this.PanelEscritorio.Controls.Add(this.comboBoxMedico);
             this.PanelEscritorio.Controls.Add(this.iconButton1);
@@ -265,22 +267,33 @@ namespace FrmEntrada
             this.PanelEscritorio.Size = new System.Drawing.Size(658, 472);
             this.PanelEscritorio.TabIndex = 4;
             // 
+            // checkBoxMedicosEnConsulta
+            // 
+            this.checkBoxMedicosEnConsulta.AutoSize = true;
+            this.checkBoxMedicosEnConsulta.Location = new System.Drawing.Point(73, 400);
+            this.checkBoxMedicosEnConsulta.Name = "checkBoxMedicosEnConsulta";
+            this.checkBoxMedicosEnConsulta.Size = new System.Drawing.Size(207, 23);
+            this.checkBoxMedicosEnConsulta.TabIndex = 5;
+            this.checkBoxMedicosEnConsulta.Text = "Habilitar medicos en consulta";
+            this.checkBoxMedicosEnConsulta.UseVisualStyleBackColor = true;
+            this.checkBoxMedicosEnConsulta.CheckedChanged += new System.EventHandler(this.checkBoxMedicosEnConsulta_CheckedChanged);
+            // 
             // comboBoxPaciente
             // 
             this.comboBoxPaciente.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxPaciente.FormattingEnabled = true;
-            this.comboBoxPaciente.Location = new System.Drawing.Point(364, 374);
+            this.comboBoxPaciente.Location = new System.Drawing.Point(364, 370);
             this.comboBoxPaciente.Name = "comboBoxPaciente";
-            this.comboBoxPaciente.Size = new System.Drawing.Size(139, 27);
+            this.comboBoxPaciente.Size = new System.Drawing.Size(254, 27);
             this.comboBoxPaciente.TabIndex = 16;
             // 
             // comboBoxMedico
             // 
             this.comboBoxMedico.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxMedico.FormattingEnabled = true;
-            this.comboBoxMedico.Location = new System.Drawing.Point(73, 374);
+            this.comboBoxMedico.Location = new System.Drawing.Point(71, 370);
             this.comboBoxMedico.Name = "comboBoxMedico";
-            this.comboBoxMedico.Size = new System.Drawing.Size(139, 27);
+            this.comboBoxMedico.Size = new System.Drawing.Size(244, 27);
             this.comboBoxMedico.TabIndex = 8;
             // 
             // iconButton1
@@ -294,10 +307,10 @@ namespace FrmEntrada
             this.iconButton1.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.iconButton1.IconSize = 40;
             this.iconButton1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.iconButton1.Location = new System.Drawing.Point(71, 420);
+            this.iconButton1.Location = new System.Drawing.Point(71, 429);
             this.iconButton1.Name = "iconButton1";
             this.iconButton1.Padding = new System.Windows.Forms.Padding(10, 0, 20, 0);
-            this.iconButton1.Size = new System.Drawing.Size(141, 49);
+            this.iconButton1.Size = new System.Drawing.Size(141, 40);
             this.iconButton1.TabIndex = 15;
             this.iconButton1.Text = "Apuntar";
             this.iconButton1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -316,10 +329,10 @@ namespace FrmEntrada
             this.iconButtonFinalizar.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.iconButtonFinalizar.IconSize = 40;
             this.iconButtonFinalizar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.iconButtonFinalizar.Location = new System.Drawing.Point(364, 419);
+            this.iconButtonFinalizar.Location = new System.Drawing.Point(364, 429);
             this.iconButtonFinalizar.Name = "iconButtonFinalizar";
             this.iconButtonFinalizar.Padding = new System.Windows.Forms.Padding(10, 0, 20, 0);
-            this.iconButtonFinalizar.Size = new System.Drawing.Size(151, 50);
+            this.iconButtonFinalizar.Size = new System.Drawing.Size(151, 40);
             this.iconButtonFinalizar.TabIndex = 14;
             this.iconButtonFinalizar.Text = "Finalizar";
             this.iconButtonFinalizar.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -488,6 +501,7 @@ namespace FrmEntrada
         private System.Windows.Forms.DataGridViewTextBoxColumn Medico;
         private System.Windows.Forms.DataGridViewTextBoxColumn Doctor;
         private FontAwesome.Sharp.IconButton iconListaDeEsperaMedicos;
+        private System.Windows.Forms.CheckBox checkBoxMedicosEnConsulta;
     }
 }
 

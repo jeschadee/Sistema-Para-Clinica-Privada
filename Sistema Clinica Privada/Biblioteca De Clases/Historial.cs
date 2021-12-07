@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace BibliotecaDeClases
 {
-    class Historial
+    public class Historial
     {
         private List<Medico> listaMedicosPacientesAtendidos;
         private string medicoConMasPacientes;
@@ -15,7 +15,9 @@ namespace BibliotecaDeClases
 
         public Historial(List<Medico> listaMedicosPacientesAtendidos)
         {
-            this.listaMedicosPacientesAtendidos = listaMedicosPacientesAtendidos;
+            // this.listaMedicosPacientesAtendidos = listaMedicosPacientesAtendidos;
         }
+
+        public List<Medico> ListaMedicosPacientesAtendidos { get => listaMedicosPacientesAtendidos; set => listaMedicosPacientesAtendidos = value; }
     }
 }

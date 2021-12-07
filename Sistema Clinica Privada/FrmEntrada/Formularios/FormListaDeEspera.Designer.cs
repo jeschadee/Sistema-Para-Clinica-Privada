@@ -107,6 +107,7 @@ namespace FrmEntrada
             this.BotonEliminar.Text = "Eliminar Paciente";
             this.BotonEliminar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.BotonEliminar.UseVisualStyleBackColor = false;
+            this.BotonEliminar.Click += new System.EventHandler(this.BotonEliminar_Click);
             // 
             // BotonConsulta
             // 
@@ -419,7 +420,7 @@ namespace FrmEntrada
             this.Controls.Add(this.BotonEliminar);
             this.Controls.Add(this.BotonInsertar);
             this.Name = "FormListaDeEspera";
-            this.Text = "ListaDeEspera";
+            this.Text = "Lista de Espera";
             this.Load += new System.EventHandler(this.FormListaDeEspera_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewPacientes)).EndInit();
             this.panel1.ResumeLayout(false);

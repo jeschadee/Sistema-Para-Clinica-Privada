@@ -14,16 +14,17 @@ namespace BibliotecaDeClases
         public Medico(string nombre, string apellido, bool estado, string especialidad) : base(nombre, apellido, estado)
         {
             this.especialidad = especialidad;
-            pacientesAtendidos = 0;
+            PacientesAtendidos = 0;
             ListaDeEsperaDelMedico = new List<Paciente>();
         }
         public void AgregarCantidadDePacientesAtendidos()
         {
-            pacientesAtendidos++;
+            PacientesAtendidos++;
         }
 
         public string Especialidad { get => especialidad;}
         public List<Paciente> ListaDeEsperaDelMedico { get => listaDeEsperaDelMedico; set => listaDeEsperaDelMedico = value; }
+        public int PacientesAtendidos { get => pacientesAtendidos; set => pacientesAtendidos = value; }
 
         public override bool Equals(object obj)
         {

@@ -208,6 +208,7 @@ namespace FrmEntrada
             this.BotonEliminar.Text = "Eliminar Medico";
             this.BotonEliminar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.BotonEliminar.UseVisualStyleBackColor = false;
+            this.BotonEliminar.Click += new System.EventHandler(this.BotonEliminar_Click);
             // 
             // BotonInsertar
             // 

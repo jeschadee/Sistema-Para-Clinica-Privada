@@ -39,9 +39,9 @@ namespace FrmEntrada
         private void frmInicio_Load(object sender, EventArgs e)
         {            
             //Inicializamos Medicos y Pacientes
-            clinica.CrearMedico("Jesus", "Colmenares", "Cirujano Plastico");
-            clinica.CrearMedico("Sebastian", "Castellanos", "Psiquiatra");
-            clinica.CrearMedico("Mia", "Kalifa", "Internista");
+            clinica.CrearMedico("Jesus", "Colmenares", "Programador");
+            clinica.CrearMedico("Sebastian", "Rodriguez", "Psiquiatra");
+            clinica.CrearMedico("Sara", "Montero", "Internista");
             //Pacientes
             clinica.CrearPaciente("Paciente1", "Mendoza1", 35, 42555, "Cobertura Completa");
             clinica.CrearPaciente("Paciente2", "Smith2", 51, 50635, "No Tiene");
@@ -80,7 +80,7 @@ namespace FrmEntrada
         }
         private void ActualizarForms()
         {
-            formHistorial = new FormHistorial(currentBtn);
+            formHistorial = new FormHistorial(currentBtn, clinica.Historial.ListaMedicosPacientesAtendidos);
             formListaDeEspera = new FormListaDeEspera(currentBtn, clinica.ListaDeEspera);
             formListaDeMedicos = new ListaDeMedicos(currentBtn, clinica.ListaDeMedico);
         }
@@ -102,9 +102,6 @@ namespace FrmEntrada
             clinica.ListaDeEspera = formListaDeEspera.Clinica.ListaDeEspera;
             clinica.ListaDeMedico = formListaDeMedicos.Clinica.ListaDeMedico;
             //Refrescamos el datagridview
-            dataGridViewConsultas.Rows.Clear();
-            dataGridViewConsultas.Refresh();
-            //Agregamos valores al datagridview
             ActualizarData();
         }
         private void Reset()
@@ -126,11 +123,25 @@ namespace FrmEntrada
             comboBoxPaciente.Text = "";
             foreach(Medico medico in clinica.ListaDeMedico)
             {
-                comboBoxMedico.Items.Add(medico.Nombre + " " + medico.Apellido);
+                if(checkBoxMedicosEnConsulta.Checked==true)
+                {
+                    comboBoxMedico.Items.Add(medico.Nombre + " " + medico.Apellido);
+                }
+                else
+                {
+                    if (medico.Estado == false)
+                    {
+                        comboBoxMedico.Items.Add(medico.Nombre + " " + medico.Apellido);
+                    }                    
+                }
             }
             if(clinica.ListaDeEspera != null && clinica.ListaDeEspera.Any())
             {
                 comboBoxPaciente.Items.Add(clinica.ListaDeEspera.First().Nombre + " " + clinica.ListaDeEspera.First().Apellido);
+            }
+            foreach(Medico medico1 in clinica.ListaDeMedico)
+            {
+                comboBoxMedico.Items.Add(medico1.Especialidad);
             }
         }
         private void horaFecha_Tick(object sender, EventArgs e)
@@ -191,19 +202,31 @@ namespace FrmEntrada
         {
             try
             {
-                if(comboBoxMedico.SelectedItem != null && comboBoxPaciente.SelectedItem != null)
+                if (comboBoxMedico.SelectedItem != null && comboBoxPaciente.SelectedItem != null)
                 {
                     string[] nombre;
                     nombre = comboBoxMedico.SelectedItem.ToString().Split(" ");
-                    clinica.CrearConsulta(clinica.ListaDeMedico.FirstOrDefault(x => x.Nombre == nombre[0]), clinica.ListaDeEspera.FirstOrDefault());
-                    clinica.ListaDeEspera.RemoveAt(0);                    
-                    //Agregarmos informacion al datagridview
-                    ActualizarData();
+                    foreach(Medico medico in clinica.ListaDeMedico)
+                    {
+                        if (medico.Nombre == nombre[0])
+                        {
+                            clinica.CrearConsulta(clinica.ListaDeMedico.FirstOrDefault(x => x.Nombre == nombre[0]), clinica.ListaDeEspera.FirstOrDefault());
+                        }
+                        else if (medico.Especialidad == comboBoxMedico.Text)
+                        {
+                            clinica.CrearConsulta(clinica.ListaDeMedico.FirstOrDefault(x => x.Especialidad == comboBoxMedico.Text), clinica.ListaDeEspera.FirstOrDefault());
+                        }
+                    }
+                     
+                     clinica.ListaDeEspera.RemoveAt(0);
+                     //Agregarmos informacion al datagridview
+                     ActualizarData();
                 }
                 else
                 {
-                    MessageBox.Show("Seleccione una casilla");
+                     MessageBox.Show("Seleccione una casilla");
                 }
+                
             }
             catch(Exception ex)
             {
@@ -228,46 +251,61 @@ namespace FrmEntrada
         {
             try
             {
-
-                Consulta consulta;
-                Paciente pacienteListaDeEsperaMedico;
-                consulta = clinica.ListaDeConsultas.First();
-                clinica.ListaDeConsultas.Remove(consulta);                
-                if(consulta.Medico.ListaDeEsperaDelMedico.Any())
+                if (dataGridViewConsultas.CurrentCell.Value != null)
                 {
-                    pacienteListaDeEsperaMedico = consulta.Medico.ListaDeEsperaDelMedico.First();
-                    consulta.Medico.ListaDeEsperaDelMedico.Remove(pacienteListaDeEsperaMedico);
-                    consulta.Medico.Estado = false;
-                    clinica.CrearConsulta(consulta.Medico, pacienteListaDeEsperaMedico);
-                    consulta.Medico.AgregarCantidadDePacientesAtendidos();
-                }
-                else
-                {
-                    consulta.Medico.AgregarCantidadDePacientesAtendidos();
-                    consulta.Medico.Estado = false;
-                }
-                //Agregarmos informacion al datagridview
-                ActualizarData();
-                switch(random.Next(0,6))
-                {
-                    case 0: 
-                        MessageBox.Show("Estamos mal, hay que hacerse más estudios","Resultado de: " + consulta.Paciente.Nombre + ".", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                        break;
-                    case 1:
-                        MessageBox.Show("Necesita internarse unos días","Resultado de:" + consulta.Paciente.Nombre + ".", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                        break;
-                    case 2:
-                        MessageBox.Show("Tiene COVID","Urgente!!! Aislar Paciente: " + consulta.Paciente.Nombre + ".", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                        break;
-                    case 3:
-                        MessageBox.Show("Se encuentra en perfecto estado", "Resultado de:" + consulta.Paciente.Nombre + ".");
-                        break;
-                    case 4:
-                        MessageBox.Show("Recetar pastillas", "Resultado", MessageBoxButtons.OK, MessageBoxIcon.Question);
-                        break;
-                    case 5:
-                        MessageBox.Show("Tomar nuevamente turno con otro profesional", "Resultado", MessageBoxButtons.OK,MessageBoxIcon.Information);
-                        break;
+                    Consulta consultaActual = null;
+                    int posicion;
+                    Paciente pacienteListaDeEsperaMedico;
+                    posicion = dataGridViewConsultas.CurrentCell.RowIndex;
+                    
+                        foreach (Consulta consulta in clinica.ListaDeConsultas)
+                        {
+                            if ((consulta.Medico.Nombre + " " + consulta.Medico.Apellido) == dataGridViewConsultas.Rows[posicion].Cells[0].Value.ToString())
+                            {
+                                if ((consulta.Paciente.Nombre + " " + consulta.Paciente.Apellido) == dataGridViewConsultas.Rows[posicion].Cells[1].Value.ToString())
+                                {
+                                    consultaActual = consulta;
+                                }
+                            }
+                        }
+                        clinica.ListaDeConsultas.Remove(consultaActual);
+                        if (consultaActual.Medico.ListaDeEsperaDelMedico.Any())
+                        {
+                            pacienteListaDeEsperaMedico = consultaActual.Medico.ListaDeEsperaDelMedico.First();
+                            consultaActual.Medico.ListaDeEsperaDelMedico.Remove(pacienteListaDeEsperaMedico);
+                            consultaActual.Medico.Estado = false;
+                            clinica.CrearConsulta(consultaActual.Medico, pacienteListaDeEsperaMedico);
+                            consultaActual.Medico.AgregarCantidadDePacientesAtendidos();
+                        }
+                        else
+                        {
+                            consultaActual.Medico.AgregarCantidadDePacientesAtendidos();
+                            consultaActual.Medico.Estado = false;
+                        }
+                        //Agregarmos informacion al datagridview
+                        ActualizarData();
+                        switch (random.Next(0, 6))
+                        {
+                            case 0:
+                                MessageBox.Show("Estamos mal, hay que hacerse más estudios", "Resultado de: " + consultaActual.Paciente.Nombre + ".", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                                break;
+                            case 1:
+                                MessageBox.Show("Necesita internarse unos días", "Resultado de:" + consultaActual.Paciente.Nombre + ".", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                                break;
+                            case 2:
+                                MessageBox.Show("Tiene COVID", "Urgente!!! Aislar Paciente: " + consultaActual.Paciente.Nombre + ".", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                break;
+                            case 3:
+                                MessageBox.Show("Se encuentra en perfecto estado", "Resultado de:" + consultaActual.Paciente.Nombre + ".");
+                                break;
+                            case 4:
+                                MessageBox.Show("Recetar pastillas", "Resultado", MessageBoxButtons.OK, MessageBoxIcon.Question);
+                                break;
+                            case 5:
+                                MessageBox.Show("Tomar nuevamente turno con otro profesional", "Resultado", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                break;
+                        }
+                  
                 }
             }
             catch(Exception)
@@ -278,7 +316,7 @@ namespace FrmEntrada
 
         private void iconButton2_Click(object sender, EventArgs e)
         {
-            StringBuilder stringBuilder = new StringBuilder();
+            StringBuilder stringBuilder = new StringBuilder("");
             
             foreach (Medico medico in clinica.ListaDeMedico)
             {
@@ -286,7 +324,11 @@ namespace FrmEntrada
                 {
                     stringBuilder.Append("Medico:" + medico.Nombre + " " + medico.Apellido + "      \t" + "Paciente:" + paciente.Nombre + " " + paciente.Apellido + "\n");                    
                 }
-            }            
+            }
+            if (stringBuilder.ToString().Equals(""))
+            {
+                stringBuilder.Append("Los medicos no tienen pacientes en espera.");
+            }
             MessageBox.Show(stringBuilder.ToString());
         }
 
@@ -347,10 +389,10 @@ namespace FrmEntrada
                         MessageBox.Show("Se encuentra en perfecto estado", "Resultado de:" + consulta.Paciente.Nombre + ".");
                         break;
                     case 4:
-                        MessageBox.Show("Recetar pastillas", "Resultado", MessageBoxButtons.OK, MessageBoxIcon.Question);
+                        MessageBox.Show("Recetar pastillas", "Resultado de:" + consulta.Paciente.Nombre + ".", MessageBoxButtons.OK, MessageBoxIcon.Question);
                         break;
                     case 5:
-                        MessageBox.Show("Tomar nuevamente turno con otro profesional", "Resultado", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        MessageBox.Show("Tomar nuevamente turno con otro profesional", "Resultado de:" + consulta.Paciente.Nombre + ".", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         break;
                 }
             }
@@ -358,6 +400,11 @@ namespace FrmEntrada
             {
                 ActualizarData();
             }
+        }
+
+        private void checkBoxMedicosEnConsulta_CheckedChanged(object sender, EventArgs e)
+        {
+            ActualizarData();
         }
     }
 }

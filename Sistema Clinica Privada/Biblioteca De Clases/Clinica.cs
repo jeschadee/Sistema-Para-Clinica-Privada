@@ -11,15 +11,19 @@ namespace BibliotecaDeClases
         private List<Paciente> listaDeEspera;        
         private List<Medico> listaDeMedico;
         private List<Consulta> listaDeConsultas;
+        private Historial historial;
 
         public List<Paciente> ListaDeEspera { get => listaDeEspera; set => listaDeEspera = value; }
         public List<Medico> ListaDeMedico { get => listaDeMedico; set => listaDeMedico = value; }
         public List<Consulta> ListaDeConsultas { get => listaDeConsultas; set => listaDeConsultas = value; }
+        public Historial Historial { get => historial; set => historial = value; }
 
         public Clinica()
         {
             ListaDeEspera = new List<Paciente>();
             ListaDeMedico = new List<Medico>();
+            listaDeConsultas = new List<Consulta>();
+            Historial = new Historial(ListaDeMedico);
         }
         public void CrearMedico(string nombre, string apellido, string especialidad)
         {

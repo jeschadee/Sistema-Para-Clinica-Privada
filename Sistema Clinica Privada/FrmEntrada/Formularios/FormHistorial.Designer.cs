@@ -29,31 +29,18 @@ namespace FrmEntrada
         /// </summary>
         private void InitializeComponent()
         {
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.labelTitulo = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.Posicion = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Medicos = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            this.dataGridViewHistorial = new System.Windows.Forms.DataGridView();
+            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewHistorial)).BeginInit();
             this.SuspendLayout();
-            // 
-            // dataGridView1
-            // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.Posicion,
-            this.Medicos});
-            this.dataGridView1.Location = new System.Drawing.Point(12, 88);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowHeadersWidth = 47;
-            this.dataGridView1.RowTemplate.Height = 28;
-            this.dataGridView1.Size = new System.Drawing.Size(426, 301);
-            this.dataGridView1.TabIndex = 0;
             // 
             // labelTitulo
             // 
@@ -71,7 +58,7 @@ namespace FrmEntrada
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Roboto", 13.74545F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point);
             this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(70)))), ((int)(((byte)(116)))));
-            this.label1.Location = new System.Drawing.Point(492, 88);
+            this.label1.Location = new System.Drawing.Point(478, 88);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(107, 25);
             this.label1.TabIndex = 14;
@@ -80,32 +67,20 @@ namespace FrmEntrada
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(517, 139);
+            this.label2.Font = new System.Drawing.Font("Segoe UI", 9.818182F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point);
+            this.label2.Location = new System.Drawing.Point(499, 139);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(45, 19);
+            this.label2.Size = new System.Drawing.Size(48, 20);
             this.label2.TabIndex = 15;
             this.label2.Text = "label2";
-            // 
-            // Posicion
-            // 
-            this.Posicion.HeaderText = "Num Pacientes";
-            this.Posicion.MinimumWidth = 6;
-            this.Posicion.Name = "Posicion";
-            this.Posicion.Width = 130;
-            // 
-            // Medicos
-            // 
-            this.Medicos.HeaderText = "Medicos";
-            this.Medicos.MinimumWidth = 6;
-            this.Medicos.Name = "Medicos";
-            this.Medicos.Width = 250;
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(517, 251);
+            this.label3.Font = new System.Drawing.Font("Segoe UI", 9.818182F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point);
+            this.label3.Location = new System.Drawing.Point(499, 251);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(45, 19);
+            this.label3.Size = new System.Drawing.Size(48, 20);
             this.label3.TabIndex = 17;
             this.label3.Text = "label3";
             // 
@@ -114,18 +89,19 @@ namespace FrmEntrada
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Roboto", 13.74545F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point);
             this.label4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(70)))), ((int)(((byte)(116)))));
-            this.label4.Location = new System.Drawing.Point(492, 200);
+            this.label4.Location = new System.Drawing.Point(478, 200);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(107, 25);
+            this.label4.Size = new System.Drawing.Size(156, 25);
             this.label4.TabIndex = 16;
-            this.label4.Text = "Medico 1º";
+            this.label4.Text = "Especialidad 1º";
             // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(517, 370);
+            this.label5.Font = new System.Drawing.Font("Segoe UI", 9.818182F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point);
+            this.label5.Location = new System.Drawing.Point(499, 370);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(45, 19);
+            this.label5.Size = new System.Drawing.Size(48, 20);
             this.label5.TabIndex = 19;
             this.label5.Text = "label5";
             // 
@@ -134,11 +110,44 @@ namespace FrmEntrada
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Roboto", 13.74545F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point);
             this.label6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(70)))), ((int)(((byte)(116)))));
-            this.label6.Location = new System.Drawing.Point(492, 319);
+            this.label6.Location = new System.Drawing.Point(478, 319);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(107, 25);
+            this.label6.Size = new System.Drawing.Size(144, 25);
             this.label6.TabIndex = 18;
-            this.label6.Text = "Medico 1º";
+            this.label6.Text = "Medico ultimo";
+            // 
+            // dataGridViewHistorial
+            // 
+            this.dataGridViewHistorial.AllowUserToAddRows = false;
+            this.dataGridViewHistorial.AllowUserToDeleteRows = false;
+            this.dataGridViewHistorial.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(246)))), ((int)(((byte)(251)))));
+            this.dataGridViewHistorial.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridViewHistorial.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Column1,
+            this.Column2});
+            this.dataGridViewHistorial.Location = new System.Drawing.Point(12, 88);
+            this.dataGridViewHistorial.Name = "dataGridViewHistorial";
+            this.dataGridViewHistorial.ReadOnly = true;
+            this.dataGridViewHistorial.RowHeadersWidth = 47;
+            this.dataGridViewHistorial.RowTemplate.Height = 28;
+            this.dataGridViewHistorial.Size = new System.Drawing.Size(461, 301);
+            this.dataGridViewHistorial.TabIndex = 20;
+            // 
+            // Column1
+            // 
+            this.Column1.HeaderText = "Num Pacientes";
+            this.Column1.MinimumWidth = 6;
+            this.Column1.Name = "Column1";
+            this.Column1.ReadOnly = true;
+            this.Column1.Width = 140;
+            // 
+            // Column2
+            // 
+            this.Column2.HeaderText = "Medico";
+            this.Column2.MinimumWidth = 6;
+            this.Column2.Name = "Column2";
+            this.Column2.ReadOnly = true;
+            this.Column2.Width = 270;
             // 
             // FormHistorial
             // 
@@ -146,6 +155,7 @@ namespace FrmEntrada
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(246)))), ((int)(((byte)(251)))));
             this.ClientSize = new System.Drawing.Size(640, 428);
+            this.Controls.Add(this.dataGridViewHistorial);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label3);
@@ -153,21 +163,16 @@ namespace FrmEntrada
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.labelTitulo);
-            this.Controls.Add(this.dataGridView1);
             this.Name = "FormHistorial";
             this.Text = "FormHistorialcs";
             this.Load += new System.EventHandler(this.FormHistorial_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewHistorial)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-
-        private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Posicion;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Medicos;
         private System.Windows.Forms.Label labelTitulo;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
@@ -175,5 +180,8 @@ namespace FrmEntrada
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.DataGridView dataGridViewHistorial;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
     }
 }

@@ -8,16 +8,17 @@ namespace BibliotecaDeClases
 {
     public class Historial
     {
-        private List<Medico> listaMedicosPacientesAtendidos;
+        private List<Medico> listaDeHistorial;
         private string medicoConMasPacientes;
         private string medicoConMenosPacientes;
         private string especialidadConMasConsultas;
 
-        public Historial(List<Medico> listaMedicosPacientesAtendidos)
+        public Historial(List<Medico> listaMedicosPacientesAtendido)
         {
-            // this.listaMedicosPacientesAtendidos = listaMedicosPacientesAtendidos;
+            listaDeHistorial = new List<Medico>();
+            listaDeHistorial = listaMedicosPacientesAtendido.OrderByDescending(x => x.PacientesAtendidos).ToList();
         }
 
-        public List<Medico> ListaMedicosPacientesAtendidos { get => listaMedicosPacientesAtendidos; set => listaMedicosPacientesAtendidos = value; }
+        public List<Medico> ListaDeHistorial { get => listaDeHistorial; set => listaDeHistorial = value; }
     }
 }

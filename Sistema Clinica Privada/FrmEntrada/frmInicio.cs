@@ -32,7 +32,6 @@ namespace FrmEntrada
             panelMenu.Controls.Add(leftBorderBtn);
             //Creamos los Forms y les pasamos su respectivo boton currentBtn y la lista
             clinica = new Clinica();
-            clinica.ListaDeConsultas = new List<Consulta>();
             semillaDelSistema = Environment.TickCount;
             random = new Random(semillaDelSistema);
         }
@@ -80,9 +79,10 @@ namespace FrmEntrada
         }
         private void ActualizarForms()
         {
-            formHistorial = new FormHistorial(currentBtn, clinica.Historial.ListaMedicosPacientesAtendidos);
+            formHistorial = new FormHistorial(currentBtn, clinica.ListaDeMedico);
             formListaDeEspera = new FormListaDeEspera(currentBtn, clinica.ListaDeEspera);
-            formListaDeMedicos = new ListaDeMedicos(currentBtn, clinica.ListaDeMedico);
+            formListaDeMedicos = new ListaDeMedicos(currentBtn, clinica.ListaDeMedico);            
+            
         }
         private void BotonDesactivado()
         {
@@ -251,7 +251,7 @@ namespace FrmEntrada
         {
             try
             {
-                if (dataGridViewConsultas.CurrentCell.Value != null)
+                if (dataGridViewConsultas.CurrentCell != null)
                 {
                     Consulta consultaActual = null;
                     int posicion;
@@ -306,6 +306,10 @@ namespace FrmEntrada
                                 break;
                         }
                   
+                }
+                else
+                {
+                    MessageBox.Show("Seleccione una consulta a eliminar");
                 }
             }
             catch(Exception)

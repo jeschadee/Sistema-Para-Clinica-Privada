@@ -243,7 +243,7 @@ namespace FrmEntrada
             this.Controls.Add(this.BotonEliminar);
             this.Controls.Add(this.BotonInsertar);
             this.Name = "ListaDeMedicos";
-            this.Text = "ListaDeMedicos";
+            this.Text = "Lista de Medicos";
             this.Load += new System.EventHandler(this.ListaDeMedicos_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();

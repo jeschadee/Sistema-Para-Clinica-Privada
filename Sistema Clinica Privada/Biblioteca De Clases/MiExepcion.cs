@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 
 namespace BibliotecaDeClases
 {
+    /// <summary>
+    /// Exepcion personalizada
+    /// </summary>
     class MiExepcion : Exception
     {
         public MiExepcion(string message) : base(message)

@@ -14,8 +14,8 @@ namespace FrmEntrada
 {
     public partial class FormHistorial : Form
     {
-        private IconButton currentBtn;
-        private Historial historial;
+        private IconButton currentBtn; //Icono actual de la pestaña de navegacion
+        private Historial historial;   
         public FormHistorial(IconButton currentBtn, List<Medico> listaMedicos)
         {
             InitializeComponent();
@@ -24,7 +24,9 @@ namespace FrmEntrada
         }
 
         public Historial Historial { get => historial; set => historial = value; }
-
+        /// <summary>
+        /// Desactiva el boton en la pestaña de navegacion
+        /// </summary>
         private void BotonDesactivado()
         {
             if (currentBtn != null)
@@ -40,18 +42,20 @@ namespace FrmEntrada
 
         private void FormHistorial_Load(object sender, EventArgs e)
         {
+            //Se ordena la lista descendente por numero de pacientes atendidos
             historial.ListaDeHistorial.OrderBy(x => x.PacientesAtendidos);
             dataGridViewHistorial.Rows.Clear();
+            //Se actializa la lista
             foreach(Medico medico in Historial.ListaDeHistorial)
             {
                 int n = dataGridViewHistorial.Rows.Add();
                 dataGridViewHistorial.Rows[n].Cells[0].Value = medico.PacientesAtendidos;
                 dataGridViewHistorial.Rows[n].Cells[1].Value = medico.Nombre + " " + medico.Apellido;
             }
+            //Se actualizan los textos
             label2.Text = historial.ListaDeHistorial.First().Nombre + " " + historial.ListaDeHistorial.First().Apellido;
             label3.Text = historial.ListaDeHistorial.First().Especialidad;
             label5.Text = historial.ListaDeHistorial.Last().Nombre + " " + historial.ListaDeHistorial.Last().Apellido;
-
         }
     }
 }

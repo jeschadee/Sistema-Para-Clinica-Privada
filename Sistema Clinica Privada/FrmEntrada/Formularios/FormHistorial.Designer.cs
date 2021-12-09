@@ -68,7 +68,7 @@ namespace FrmEntrada
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Segoe UI", 9.818182F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point);
-            this.label2.Location = new System.Drawing.Point(499, 139);
+            this.label2.Location = new System.Drawing.Point(479, 139);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(48, 20);
             this.label2.TabIndex = 15;
@@ -78,7 +78,7 @@ namespace FrmEntrada
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Segoe UI", 9.818182F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point);
-            this.label3.Location = new System.Drawing.Point(499, 251);
+            this.label3.Location = new System.Drawing.Point(479, 251);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(48, 20);
             this.label3.TabIndex = 17;
@@ -99,7 +99,7 @@ namespace FrmEntrada
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Segoe UI", 9.818182F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point);
-            this.label5.Location = new System.Drawing.Point(499, 370);
+            this.label5.Location = new System.Drawing.Point(479, 369);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(48, 20);
             this.label5.TabIndex = 19;
@@ -110,7 +110,7 @@ namespace FrmEntrada
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Roboto", 13.74545F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point);
             this.label6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(70)))), ((int)(((byte)(116)))));
-            this.label6.Location = new System.Drawing.Point(478, 319);
+            this.label6.Location = new System.Drawing.Point(478, 310);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(144, 25);
             this.label6.TabIndex = 18;
@@ -164,7 +164,7 @@ namespace FrmEntrada
             this.Controls.Add(this.label1);
             this.Controls.Add(this.labelTitulo);
             this.Name = "FormHistorial";
-            this.Text = "FormHistorialcs";
+            this.Text = "Historial";
             this.Load += new System.EventHandler(this.FormHistorial_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewHistorial)).EndInit();
             this.ResumeLayout(false);

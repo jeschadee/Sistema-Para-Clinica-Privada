@@ -16,10 +16,10 @@ namespace FrmEntrada
     {
         //Declaracion de entidades
         private Clinica clinica;
-        private ErrorProvider erp = new ErrorProvider();
-        int edad;
-        long dni;
-        private IconButton currentBtn;
+        private ErrorProvider erp = new ErrorProvider(); //Funciona para mostrar errores
+        int edad; //variable que almacena valor del textboxEdad
+        long dni; //variable que almacena valor del textBoxDni
+        private IconButton currentBtn; //boton actual de la pestaña de navegacion
 
         public Clinica Clinica { get => clinica; }
 
@@ -30,6 +30,9 @@ namespace FrmEntrada
             this.currentBtn = currentBtn;
             clinica.ListaDeEspera = listaPaciente;
         }
+        /// <summary>
+        /// Desactiva el boton seleccionado en la pestaña de navegacion
+        /// </summary>
         private void BotonDesactivado()
         {
             if (currentBtn != null)
@@ -42,6 +45,7 @@ namespace FrmEntrada
                 currentBtn.ImageAlign = ContentAlignment.MiddleLeft;
             }
         }
+        //Inserta un paciente en la lista de espera al dar click sobre insertar
         private void BotonInsertar_Click(object sender, EventArgs e)
         {
             //Validamos que los datos sean correctos
@@ -50,7 +54,7 @@ namespace FrmEntrada
                 try
                 {
                     //Agregamos Informacion                
-                    clinica.CrearPaciente(textBoxNombre.Text, textBoxApellido.Text, edad, dni, comboBoxOS.Text);
+                    clinica.CrearPaciente(textBoxNombre.Text, textBoxApellido.Text, edad, dni, (ObraSocial)comboBoxOS.SelectedIndex);
                 }
                 catch(Exception ex)
                 {
@@ -60,6 +64,9 @@ namespace FrmEntrada
                 LimpiarCeldas();
             }
         }
+        /// <summary>
+        /// Deja en blanco los textbox y actualiza el datagridviewPacientes
+        /// </summary>
         public void LimpiarCeldas()
         {
             textBoxNombre.Text = "";
@@ -81,6 +88,10 @@ namespace FrmEntrada
                 dataGridViewPacientes.Rows[n].Cells[4].Value = paciente.ObraSocial;
             }
         }
+        /// <summary>
+        /// Comprueba si los valores ingresados en los textBox fueron correctos para agregar una persona
+        /// </summary>
+        /// <returns>Retorna true si los valores son correctos</returns>
         private bool ValidarPaciente()
         {
             Regex valor = new Regex(@"^[a-zA-Z]+$");
@@ -137,21 +148,21 @@ namespace FrmEntrada
             //Dejamos en blanco las casillas de texto
             LimpiarCeldas();
         }
-
+        //Al dar click sobre consulta, oculta el fomr y muestra el inicio donde se pueden hacer las consultas
         private void BotonConsulta_Click(object sender, EventArgs e)
         {
             this.Hide();
             BotonDesactivado();
         }
-
+        //al clickear en eliminar, se elimina el paciente seleccionado
         private void BotonEliminar_Click(object sender, EventArgs e)
         {            
-            if(dataGridViewPacientes.CurrentCell.Value != null)
+            if(dataGridViewPacientes.CurrentCell.Value != null)//si hay una casilla seleccionada se procede a borrar
             {
                 int posicion;
                 Paciente pacienteActual = null;
-                posicion = dataGridViewPacientes.CurrentCell.RowIndex;
-                foreach (Paciente paciente in clinica.ListaDeEspera)
+                posicion = dataGridViewPacientes.CurrentCell.RowIndex;//posicion de la casilla seleccionada
+                foreach (Paciente paciente in clinica.ListaDeEspera) //se recorre la lista
                 {
                     if (dataGridViewPacientes.Rows[posicion].Cells[0].Value.ToString() == paciente.Nombre)
                     {
@@ -161,7 +172,7 @@ namespace FrmEntrada
                         }
                     }
                 }
-                clinica.ListaDeEspera.Remove(pacienteActual);
+                clinica.ListaDeEspera.Remove(pacienteActual); //se elimina el paciente seleccionado
                 LimpiarCeldas();
             }
 

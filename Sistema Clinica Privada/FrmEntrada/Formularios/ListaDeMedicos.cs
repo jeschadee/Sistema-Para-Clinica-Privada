@@ -12,12 +12,14 @@ using FontAwesome.Sharp;
 using System.Text.RegularExpressions;
 namespace FrmEntrada
 {
+    /// <summary>
+    /// Form que visualiza la lista de medicos
+    /// </summary>
     public partial class ListaDeMedicos : Form
     {        
         private Clinica clinica;
-        private ErrorProvider erp = new ErrorProvider();
-        private IconButton currentBtn;
-
+        private ErrorProvider erp = new ErrorProvider(); //icono que muestra errores
+        private IconButton currentBtn; //boton actual seleccionado de la pestaña de navegacion
         public Clinica Clinica { get => clinica; set => clinica = value; }
 
         public ListaDeMedicos(IconButton iconButton, List<Medico> listaDeMedicos)
@@ -27,6 +29,9 @@ namespace FrmEntrada
             this.currentBtn = iconButton;
             clinica.ListaDeMedico = listaDeMedicos;
         }
+        /// <summary>
+        /// Desactiva el boton seleccionado en la pestaña de navegacion
+        /// </summary>
         private void BotonDesactivado()
         {
             if (currentBtn != null)
@@ -39,6 +44,9 @@ namespace FrmEntrada
                 currentBtn.ImageAlign = ContentAlignment.MiddleLeft;
             }
         }
+        /// <summary>
+        /// Deja en blanco los textBox y actualiza el datagridviewMedicos
+        /// </summary>
         public void LimpiarCeldas()
         {
             textBoxNombre.Text = "";
@@ -53,7 +61,7 @@ namespace FrmEntrada
                 dataGridViewMedicos.Rows[n].Cells[0].Value = medico.Nombre;
                 dataGridViewMedicos.Rows[n].Cells[1].Value = medico.Apellido;
                 dataGridViewMedicos.Rows[n].Cells[2].Value = medico.Especialidad;
-                if (medico.Estado == true)
+                if (medico.Estado == true) //si el medico tiene el estado true, que imprima si, sino imprima no
                 {
                     dataGridViewMedicos.Rows[n].Cells[3].Value = "Si";
                 }
@@ -70,7 +78,7 @@ namespace FrmEntrada
            
             LimpiarCeldas();
         }
-
+        //Al cliquear sobre insertar, agrega un medico
         private void BotonInsertar_Click(object sender, EventArgs e)
         {
             try
@@ -88,6 +96,10 @@ namespace FrmEntrada
                 MessageBox.Show(ex.Message);
             }
         }
+        /// <summary>
+        /// Valida si son correcto los datos ingresados en los textBox
+        /// </summary>
+        /// <returns></returns>
         private bool ValidarMedico()
         {
             Regex valor = new Regex(@"^[a-zA-Z]+$");
@@ -136,16 +148,16 @@ namespace FrmEntrada
                 return false;
             }
         }
-
+        //Al cliquear sobre el boton consulta esconde el form y muestra el inicio donde se pueden hacer consultas
         private void BotonConsulta_Click(object sender, EventArgs e)
         {
             this.Hide();
             BotonDesactivado();
         }
-
-        private void BotonEliminar_Click(object sender, EventArgs e)
+        //al cliquear en el boton eliminar, eliminamos al medico seleccionado
+        private void BotonEliminar_Click(object sender, EventArgs e) //Elimina un medico al hacer click
         {
-            if (dataGridViewMedicos.CurrentCell.Value != null)
+            if (dataGridViewMedicos.CurrentCell.Value != null) //si hay una celda seleccionada
             {
                 int posicion;
                 Medico medicoActual = null;
@@ -156,11 +168,11 @@ namespace FrmEntrada
                     {
                         if (dataGridViewMedicos.Rows[posicion].Cells[1].Value.ToString() == medico.Apellido)
                         {
-                            medicoActual = medico;
+                            medicoActual = medico; //Si coincide el nombre del medico y el apellido, entonces ese es el medico
                         }
                     }
                 }
-                clinica.ListaDeMedico.Remove(medicoActual);
+                clinica.ListaDeMedico.Remove(medicoActual); //eliminamos el medico seleccionado
                 LimpiarCeldas();
             }
         }

@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 
 namespace BibliotecaDeClases
 {
+    /// <summary>
+    /// Clase para las consultas entre un medico y un paciente
+    /// </summary>
     public class Consulta
     {
         private Paciente paciente;
@@ -21,7 +24,12 @@ namespace BibliotecaDeClases
         public Paciente Paciente { get => paciente; set => paciente = value; }
         public Medico Medico { get => medico; set => medico = value; }
         public string Resultado { get => resultado; set => resultado = value; }
-
+        
+        /// <summary>
+        /// Compara si un objeto es igual a una consulta si y solo si tiene el mismo medico y paciente
+        /// </summary>
+        /// <param name="obj">Objeto a comparar</param>
+        /// <returns>booleano de la operacion de comparacion</returns>
         public override bool Equals(object obj)
         {
             return obj is Consulta consulta &&

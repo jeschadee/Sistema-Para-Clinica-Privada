@@ -6,12 +6,12 @@ using System.Threading.Tasks;
 
 namespace BibliotecaDeClases
 {
+    /// <summary>
+    /// Clase que administra los registros historicos
+    /// </summary>
     public class Historial
     {
         private List<Medico> listaDeHistorial;
-        private string medicoConMasPacientes;
-        private string medicoConMenosPacientes;
-        private string especialidadConMasConsultas;
 
         public Historial(List<Medico> listaMedicosPacientesAtendido)
         {

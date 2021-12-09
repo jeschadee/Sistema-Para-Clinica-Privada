@@ -30,6 +30,7 @@ namespace FrmEntrada
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmInicio));
             this.panelMenu = new System.Windows.Forms.Panel();
             this.iconListaDeEsperaMedicos = new FontAwesome.Sharp.IconButton();
             this.iconHistorial = new FontAwesome.Sharp.IconButton();
@@ -454,9 +455,10 @@ namespace FrmEntrada
             this.Controls.Add(this.panelSombraSuperior);
             this.Controls.Add(this.barraDeTitulo);
             this.Controls.Add(this.panelMenu);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "frmInicio";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Form1";
+            this.Text = "Sistema Clinica";
             this.Load += new System.EventHandler(this.frmInicio_Load);
             this.panelMenu.ResumeLayout(false);
             this.panelLogo.ResumeLayout(false);

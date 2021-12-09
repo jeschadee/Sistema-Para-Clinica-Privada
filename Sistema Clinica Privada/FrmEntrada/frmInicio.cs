@@ -14,13 +14,14 @@ namespace FrmEntrada
     public partial class frmInicio : Form
     {
         //Propiedades para los botones
-        private IconButton currentBtn;
-        private Panel leftBorderBtn;
-        //Inicializamos los formularios y el objeto clinica que lo controla todo
+        private IconButton currentBtn; //Icono actual del boton
+        private Panel leftBorderBtn; //Borde del boton en la pestaña de navegacion que dara la ilusion de esta seleccionado
+        //Creamos los formularios y el objeto clinica que lo controla todo
         private Clinica clinica;
         private FormHistorial formHistorial;
         private FormListaDeEspera formListaDeEspera;
         private ListaDeMedicos formListaDeMedicos;
+        //Creamos una clase random y un entero que almacenara la semilla del sistema para dar resultados aleatorios
         private Random random;
         private int semillaDelSistema;
 
@@ -37,23 +38,28 @@ namespace FrmEntrada
         }
         private void frmInicio_Load(object sender, EventArgs e)
         {            
-            //Inicializamos Medicos y Pacientes
+            //Inicializamos Medicos
             clinica.CrearMedico("Jesus", "Colmenares", "Programador");
             clinica.CrearMedico("Sebastian", "Rodriguez", "Psiquiatra");
             clinica.CrearMedico("Sara", "Montero", "Internista");
             //Pacientes
-            clinica.CrearPaciente("Paciente1", "Mendoza1", 35, 42555, "Cobertura Completa");
-            clinica.CrearPaciente("Paciente2", "Smith2", 51, 50635, "No Tiene");
-            clinica.CrearPaciente("Paciente3", "Mendoza3", 36, 557785, "Cobertura Completa");
-            clinica.CrearPaciente("Paciente4", "Smith4", 52, 507535, "No Tiene");
-            clinica.CrearPaciente("Paciente5", "Mendoza5", 37, 42585, "Cobertura Completa");
-            clinica.CrearPaciente("Paciente6", "Smith6", 53, 5759635, "No Tiene");
-            clinica.CrearPaciente("Paciente7", "Mendoza7", 38, 4255785, "Cobertura Completa");
-            clinica.CrearPaciente("Paciente8", "Smith8", 54, 5075963, "No Tiene");
+            clinica.CrearPaciente("Paciente1", "Mendoza1", 35, 42555, ObraSocial.CoberturaBasica);
+            clinica.CrearPaciente("Paciente2", "Smith2", 51, 50635, ObraSocial.CoberturaCompleta);
+            clinica.CrearPaciente("Paciente3", "Mendoza3", 36, 557785, ObraSocial.NoTiene);
+            clinica.CrearPaciente("Paciente4", "Smith4", 52, 507535, ObraSocial.CoberturaCompleta);
+            clinica.CrearPaciente("Paciente5", "Mendoza5", 37, 42585, ObraSocial.CoberturaBasica);
+            clinica.CrearPaciente("Paciente6", "Smith6", 53, 5759635, ObraSocial.CoberturaBasica);
+            clinica.CrearPaciente("Paciente7", "Mendoza7", 38, 4255785, ObraSocial.CoberturaCompleta);
+            clinica.CrearPaciente("Paciente8", "Smith8", 54, 5075963, ObraSocial.NoTiene);
             InicializarComboBox();
             //Actualizamos listas de los forms
             ActualizarForms();
         }
+        /// <summary>
+        /// Da la ilusion de que el boton seleccionado en la pestaña de navegacion se activa, se agrega un panel y se mueve el icono
+        /// </summary>
+        /// <param name="senderBtn">Boton clickeado</param>
+        /// <param name="color">Color que modificara las letras del boton</param>
         private void BotonActivado(object senderBtn, Color color)
         {
             if (senderBtn != null)
@@ -71,12 +77,15 @@ namespace FrmEntrada
                 leftBorderBtn.Location = new Point(0, currentBtn.Location.Y);
                 leftBorderBtn.Visible = true;
                 leftBorderBtn.BringToFront();
-
+                //Icono en el centro del form
                 iconhijo.IconChar = currentBtn.IconChar;
                 iconhijo.IconColor = color;
 
             }
         }
+        /// <summary>
+        /// Inicializa nuevos forms con las listas actualizadas
+        /// </summary>
         private void ActualizarForms()
         {
             formHistorial = new FormHistorial(currentBtn, clinica.ListaDeMedico);
@@ -84,6 +93,9 @@ namespace FrmEntrada
             formListaDeMedicos = new ListaDeMedicos(currentBtn, clinica.ListaDeMedico);            
             
         }
+        /// <summary>
+        /// Da la ilusion de que el boton se desactiva en la pestaña de navegacion, funciona con el metodo BotonActivado()
+        /// </summary>
         private void BotonDesactivado()
         {
             if (currentBtn != null)
@@ -96,6 +108,7 @@ namespace FrmEntrada
                 currentBtn.ImageAlign = ContentAlignment.MiddleLeft;
             }
         }
+        //click en el logo, reinicia y va al inicio
         private void btnLogo_Click(object sender, EventArgs e)
         {
             Reset();
@@ -104,6 +117,9 @@ namespace FrmEntrada
             //Refrescamos el datagridview
             ActualizarData();
         }
+        /// <summary>
+        /// Vuelve a la pagina de inicio y esconde los forms secundarios, cambia el icono central al predeterminado
+        /// </summary>
         private void Reset()
         {
             formListaDeEspera.Hide();
@@ -115,6 +131,9 @@ namespace FrmEntrada
             iconhijo.IconColor = Color.FromArgb(70, 71, 115);
             labelInicio.Text = "Inicio";
         }
+        /// <summary>
+        /// Deja en blanco los comboBox y actualiza sus Items
+        /// </summary>
         private void InicializarComboBox()
         {
             comboBoxMedico.Items.Clear();
@@ -144,16 +163,17 @@ namespace FrmEntrada
                 comboBoxMedico.Items.Add(medico1.Especialidad);
             }
         }
+        //Fecha
         private void horaFecha_Tick(object sender, EventArgs e)
         {
             labelHora.Text = DateTime.Now.ToShortTimeString();
         }
-
+        //Hora
         private void Fecha_Tick(object sender, EventArgs e)
         {
             labelFecha.Text = DateTime.Now.ToShortDateString();
         }
-
+        //Abre el form listaDeMedicos
         private void iconListaDeMedicos_Click(object sender, EventArgs e)
         {
             BotonActivado(sender, Color.FromArgb(70, 71, 115));
@@ -168,6 +188,7 @@ namespace FrmEntrada
             formListaDeMedicos.BringToFront();
             labelInicio.Text = formListaDeMedicos.Text;
         }
+        //Abre el form Historial
         private void iconHistorial_Click_1(object sender, EventArgs e)
         {
             BotonActivado(sender, Color.FromArgb(70, 71, 115));
@@ -182,7 +203,7 @@ namespace FrmEntrada
             formHistorial.BringToFront();
             labelInicio.Text = formHistorial.Text;
         }
-
+        //abre el form listaDeEspera
         private void iconListaDeEspera_Click(object sender, EventArgs e)
         {
             BotonActivado(sender, Color.FromArgb(70, 71, 115));            
@@ -197,7 +218,7 @@ namespace FrmEntrada
             formListaDeEspera.BringToFront();
             labelInicio.Text = formListaDeEspera.Text;
         }
-
+        //Click sobre crear consulta, verifica los datos en los comboBoxMedico y comboBoxPaciente
         private void iconButton1_Click(object sender, EventArgs e)
         {
             try
@@ -233,6 +254,9 @@ namespace FrmEntrada
                 MessageBox.Show(ex.Message);
             }
         }
+        /// <summary>
+        /// Actualiza la informacion del datagridviewConsultas, InicializaComboBox y ActualizaForms
+        /// </summary>
         private void ActualizarData()
         {
             dataGridViewConsultas.Rows.Clear();
@@ -247,6 +271,7 @@ namespace FrmEntrada
             ActualizarForms();
             dataGridViewConsultas.CurrentCell = null;
         }
+        //Click en finalizar, finaliza la consulta seleccionada
         private void iconButtonFinalizar_Click(object sender, EventArgs e)
         {
             try
@@ -284,6 +309,7 @@ namespace FrmEntrada
                         }
                         //Agregarmos informacion al datagridview
                         ActualizarData();
+                    //Imprimimos un resultado aleatorio
                         switch (random.Next(0, 6))
                         {
                             case 0:
@@ -317,7 +343,7 @@ namespace FrmEntrada
                 MessageBox.Show("No existe ninguna consulta para eliminar");
             }
         }
-
+        //Click sobre lista de espera de medicos en consulta actual
         private void iconButton2_Click(object sender, EventArgs e)
         {
             StringBuilder stringBuilder = new StringBuilder("");
@@ -331,15 +357,16 @@ namespace FrmEntrada
             }
             if (stringBuilder.ToString().Equals(""))
             {
-                stringBuilder.Append("Los medicos no tienen pacientes en espera.");
+                stringBuilder.Append("No hay pacientes en espera de los medicos en consulta.");
             }
             MessageBox.Show(stringBuilder.ToString());
         }
-
+        //Implementa la funcionalidad de eliminar con un click
         private void dataGridViewConsultas_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             DialogResult respuesta;
             Consulta consulta = null;
+            //hacemos un cuadro de verificacion para proceder a eliminar
             respuesta = MessageBox.Show("¿Desea eliminar la consulta seleccionada?","Eliminar Consulta", MessageBoxButtons.YesNoCancel);
             if (respuesta==DialogResult.Yes)
             {
@@ -363,6 +390,7 @@ namespace FrmEntrada
                     }
                 }
                 clinica.ListaDeConsultas.Remove(consulta);
+                //chequeamos que el medico que esta saliendo de consulta no tenga ningun paciente en espera, sino, lo agregamos
                 if (consulta.Medico.ListaDeEsperaDelMedico.Any())
                 {
                     pacienteListaDeEsperaMedico = consulta.Medico.ListaDeEsperaDelMedico.First();
@@ -374,7 +402,7 @@ namespace FrmEntrada
                 else
                 {
                     consulta.Medico.Estado = false;
-                    consulta.Medico.AgregarCantidadDePacientesAtendidos();
+                    consulta.Medico.AgregarCantidadDePacientesAtendidos();//Le sumamos un paciente atendido
                 }
                 //Agregarmos informacion al datagridview
                 ActualizarData();
@@ -405,7 +433,7 @@ namespace FrmEntrada
                 ActualizarData();
             }
         }
-
+        //si activamos o desactivamos el checkBox que se actualizen los comboBox y las tablas
         private void checkBoxMedicosEnConsulta_CheckedChanged(object sender, EventArgs e)
         {
             ActualizarData();

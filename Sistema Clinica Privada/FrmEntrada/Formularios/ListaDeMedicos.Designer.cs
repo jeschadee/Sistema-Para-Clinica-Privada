@@ -58,63 +58,67 @@ namespace FrmEntrada
             this.panel1.Controls.Add(this.labelNombre);
             this.panel1.Controls.Add(this.textBoxNombre);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel1.Location = new System.Drawing.Point(0, 123);
+            this.panel1.Location = new System.Drawing.Point(0, 144);
+            this.panel1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(640, 63);
+            this.panel1.Size = new System.Drawing.Size(615, 60);
             this.panel1.TabIndex = 9;
             // 
             // labelEdad
             // 
             this.labelEdad.AutoSize = true;
             this.labelEdad.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(70)))), ((int)(((byte)(116)))));
-            this.labelEdad.Location = new System.Drawing.Point(278, 12);
+            this.labelEdad.Location = new System.Drawing.Point(243, 9);
             this.labelEdad.Name = "labelEdad";
-            this.labelEdad.Size = new System.Drawing.Size(82, 19);
+            this.labelEdad.Size = new System.Drawing.Size(72, 15);
             this.labelEdad.TabIndex = 19;
             this.labelEdad.Text = "Especialidad";
             // 
             // textBoxEspecialidad
             // 
             this.textBoxEspecialidad.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(70)))), ((int)(((byte)(116)))));
-            this.textBoxEspecialidad.Location = new System.Drawing.Point(278, 34);
+            this.textBoxEspecialidad.Location = new System.Drawing.Point(243, 27);
+            this.textBoxEspecialidad.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.textBoxEspecialidad.Name = "textBoxEspecialidad";
-            this.textBoxEspecialidad.Size = new System.Drawing.Size(133, 26);
+            this.textBoxEspecialidad.Size = new System.Drawing.Size(117, 23);
             this.textBoxEspecialidad.TabIndex = 18;
             // 
             // labelApellido
             // 
             this.labelApellido.AutoSize = true;
             this.labelApellido.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(70)))), ((int)(((byte)(116)))));
-            this.labelApellido.Location = new System.Drawing.Point(141, 12);
+            this.labelApellido.Location = new System.Drawing.Point(123, 9);
             this.labelApellido.Name = "labelApellido";
-            this.labelApellido.Size = new System.Drawing.Size(58, 19);
+            this.labelApellido.Size = new System.Drawing.Size(51, 15);
             this.labelApellido.TabIndex = 17;
             this.labelApellido.Text = "Apellido";
             // 
             // textBoxApellido
             // 
             this.textBoxApellido.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(70)))), ((int)(((byte)(116)))));
-            this.textBoxApellido.Location = new System.Drawing.Point(141, 34);
+            this.textBoxApellido.Location = new System.Drawing.Point(123, 27);
+            this.textBoxApellido.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.textBoxApellido.Name = "textBoxApellido";
-            this.textBoxApellido.Size = new System.Drawing.Size(115, 26);
+            this.textBoxApellido.Size = new System.Drawing.Size(101, 23);
             this.textBoxApellido.TabIndex = 16;
             // 
             // labelNombre
             // 
             this.labelNombre.AutoSize = true;
             this.labelNombre.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(70)))), ((int)(((byte)(116)))));
-            this.labelNombre.Location = new System.Drawing.Point(3, 12);
+            this.labelNombre.Location = new System.Drawing.Point(3, 9);
             this.labelNombre.Name = "labelNombre";
-            this.labelNombre.Size = new System.Drawing.Size(59, 19);
+            this.labelNombre.Size = new System.Drawing.Size(51, 15);
             this.labelNombre.TabIndex = 15;
             this.labelNombre.Text = "Nombre";
             // 
             // textBoxNombre
             // 
             this.textBoxNombre.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(70)))), ((int)(((byte)(116)))));
-            this.textBoxNombre.Location = new System.Drawing.Point(3, 34);
+            this.textBoxNombre.Location = new System.Drawing.Point(3, 27);
+            this.textBoxNombre.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.textBoxNombre.Name = "textBoxNombre";
-            this.textBoxNombre.Size = new System.Drawing.Size(115, 26);
+            this.textBoxNombre.Size = new System.Drawing.Size(101, 23);
             this.textBoxNombre.TabIndex = 14;
             // 
             // dataGridViewMedicos
@@ -128,12 +132,13 @@ namespace FrmEntrada
             this.dataGridViewTextBoxColumn2,
             this.Especialidad,
             this.Estado});
-            this.dataGridViewMedicos.Location = new System.Drawing.Point(0, 192);
+            this.dataGridViewMedicos.Location = new System.Drawing.Point(0, 208);
+            this.dataGridViewMedicos.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dataGridViewMedicos.Name = "dataGridViewMedicos";
             this.dataGridViewMedicos.ReadOnly = true;
             this.dataGridViewMedicos.RowHeadersWidth = 47;
             this.dataGridViewMedicos.RowTemplate.Height = 28;
-            this.dataGridViewMedicos.Size = new System.Drawing.Size(640, 236);
+            this.dataGridViewMedicos.Size = new System.Drawing.Size(615, 183);
             this.dataGridViewMedicos.TabIndex = 8;
             // 
             // dataGridViewTextBoxColumn1
@@ -180,9 +185,10 @@ namespace FrmEntrada
             this.BotonConsulta.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.BotonConsulta.IconSize = 40;
             this.BotonConsulta.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.BotonConsulta.Location = new System.Drawing.Point(0, 82);
+            this.BotonConsulta.Location = new System.Drawing.Point(0, 96);
+            this.BotonConsulta.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.BotonConsulta.Name = "BotonConsulta";
-            this.BotonConsulta.Size = new System.Drawing.Size(640, 41);
+            this.BotonConsulta.Size = new System.Drawing.Size(615, 48);
             this.BotonConsulta.TabIndex = 7;
             this.BotonConsulta.Text = "Programar consulta";
             this.BotonConsulta.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -201,9 +207,10 @@ namespace FrmEntrada
             this.BotonEliminar.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.BotonEliminar.IconSize = 40;
             this.BotonEliminar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.BotonEliminar.Location = new System.Drawing.Point(0, 41);
+            this.BotonEliminar.Location = new System.Drawing.Point(0, 48);
+            this.BotonEliminar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.BotonEliminar.Name = "BotonEliminar";
-            this.BotonEliminar.Size = new System.Drawing.Size(640, 41);
+            this.BotonEliminar.Size = new System.Drawing.Size(615, 48);
             this.BotonEliminar.TabIndex = 6;
             this.BotonEliminar.Text = "Eliminar Medico";
             this.BotonEliminar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -223,8 +230,9 @@ namespace FrmEntrada
             this.BotonInsertar.IconSize = 40;
             this.BotonInsertar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.BotonInsertar.Location = new System.Drawing.Point(0, 0);
+            this.BotonInsertar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.BotonInsertar.Name = "BotonInsertar";
-            this.BotonInsertar.Size = new System.Drawing.Size(640, 41);
+            this.BotonInsertar.Size = new System.Drawing.Size(615, 48);
             this.BotonInsertar.TabIndex = 5;
             this.BotonInsertar.Text = "Insertar Medico";
             this.BotonInsertar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -233,15 +241,16 @@ namespace FrmEntrada
             // 
             // ListaDeMedicos
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 19F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(255)))));
-            this.ClientSize = new System.Drawing.Size(640, 498);
+            this.ClientSize = new System.Drawing.Size(615, 389);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.dataGridViewMedicos);
             this.Controls.Add(this.BotonConsulta);
             this.Controls.Add(this.BotonEliminar);
             this.Controls.Add(this.BotonInsertar);
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "ListaDeMedicos";
             this.Text = "Lista de Medicos";
             this.Load += new System.EventHandler(this.ListaDeMedicos_Load);

@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "pASfTuaP4oHagjvdvGlr1MtnaW1Qj4h5zY5CCVpsBFPdYtoLONk4/BturLOWd88syo9vmrzjo7V7h0w/a7U1Hg==",
+  "dgSpecHash": "b/k050WY3+C/kLZ/Hy8aSOJG8LuOMDabInC1pPWmHiyDzVN+6lWaVKteXd0Oj8OLafxejzs3kNRlmSDit3oA2w==",
   "success": true,
-  "projectFilePath": "C:\\Users\\W10-PC\\Desktop\\Programacion\\Codigos\\Sistema-Para-Clinica-Privada\\Sistema Clinica Privada\\FrmEntrada\\Interfaz.csproj",
+  "projectFilePath": "C:\\Users\\W10-PC\\Desktop\\Nueva carpeta\\Sistema-Para-Clinica-Privada\\Sistema Clinica Privada\\FrmEntrada\\Interfaz.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\W10-PC\\.nuget\\packages\\fontawesome.sharp\\5.15.4\\fontawesome.sharp.5.15.4.nupkg.sha512"
   ],

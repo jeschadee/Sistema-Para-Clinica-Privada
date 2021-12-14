@@ -80,8 +80,9 @@ namespace FrmEntrada
             this.BotonInsertar.IconSize = 40;
             this.BotonInsertar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.BotonInsertar.Location = new System.Drawing.Point(0, 0);
+            this.BotonInsertar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.BotonInsertar.Name = "BotonInsertar";
-            this.BotonInsertar.Size = new System.Drawing.Size(640, 41);
+            this.BotonInsertar.Size = new System.Drawing.Size(615, 48);
             this.BotonInsertar.TabIndex = 0;
             this.BotonInsertar.Text = "Insertar Paciente";
             this.BotonInsertar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -100,9 +101,10 @@ namespace FrmEntrada
             this.BotonEliminar.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.BotonEliminar.IconSize = 40;
             this.BotonEliminar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.BotonEliminar.Location = new System.Drawing.Point(0, 41);
+            this.BotonEliminar.Location = new System.Drawing.Point(0, 48);
+            this.BotonEliminar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.BotonEliminar.Name = "BotonEliminar";
-            this.BotonEliminar.Size = new System.Drawing.Size(640, 41);
+            this.BotonEliminar.Size = new System.Drawing.Size(615, 48);
             this.BotonEliminar.TabIndex = 1;
             this.BotonEliminar.Text = "Eliminar Paciente";
             this.BotonEliminar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -121,9 +123,10 @@ namespace FrmEntrada
             this.BotonConsulta.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.BotonConsulta.IconSize = 40;
             this.BotonConsulta.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.BotonConsulta.Location = new System.Drawing.Point(0, 82);
+            this.BotonConsulta.Location = new System.Drawing.Point(0, 96);
+            this.BotonConsulta.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.BotonConsulta.Name = "BotonConsulta";
-            this.BotonConsulta.Size = new System.Drawing.Size(640, 41);
+            this.BotonConsulta.Size = new System.Drawing.Size(615, 48);
             this.BotonConsulta.TabIndex = 2;
             this.BotonConsulta.Text = "Programar consulta";
             this.BotonConsulta.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -142,12 +145,13 @@ namespace FrmEntrada
             this.Column3,
             this.Column4,
             this.Column5});
-            this.dataGridViewPacientes.Location = new System.Drawing.Point(0, 192);
+            this.dataGridViewPacientes.Location = new System.Drawing.Point(0, 205);
+            this.dataGridViewPacientes.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dataGridViewPacientes.Name = "dataGridViewPacientes";
             this.dataGridViewPacientes.ReadOnly = true;
             this.dataGridViewPacientes.RowHeadersWidth = 47;
             this.dataGridViewPacientes.RowTemplate.Height = 28;
-            this.dataGridViewPacientes.Size = new System.Drawing.Size(640, 236);
+            this.dataGridViewPacientes.Size = new System.Drawing.Size(615, 184);
             this.dataGridViewPacientes.TabIndex = 3;
             // 
             // Column1
@@ -192,7 +196,6 @@ namespace FrmEntrada
             // 
             // panel1
             // 
-            this.panel1.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(255)))));
             this.panel1.Controls.Add(this.comboBoxOS);
             this.panel1.Controls.Add(this.labelOS);
@@ -204,9 +207,11 @@ namespace FrmEntrada
             this.panel1.Controls.Add(this.textBoxApellido);
             this.panel1.Controls.Add(this.labelNombre);
             this.panel1.Controls.Add(this.textBoxNombre);
-            this.panel1.Location = new System.Drawing.Point(0, 123);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel1.Location = new System.Drawing.Point(0, 144);
+            this.panel1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(640, 63);
+            this.panel1.Size = new System.Drawing.Size(615, 57);
             this.panel1.TabIndex = 4;
             // 
             // comboBoxOS
@@ -217,18 +222,19 @@ namespace FrmEntrada
             "No Tiene",
             "Cobertura Básica",
             "Cobertura Completa"});
-            this.comboBoxOS.Location = new System.Drawing.Point(489, 28);
+            this.comboBoxOS.Location = new System.Drawing.Point(428, 22);
+            this.comboBoxOS.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.comboBoxOS.Name = "comboBoxOS";
-            this.comboBoxOS.Size = new System.Drawing.Size(139, 27);
+            this.comboBoxOS.Size = new System.Drawing.Size(122, 23);
             this.comboBoxOS.TabIndex = 24;
             // 
             // labelOS
             // 
             this.labelOS.AutoSize = true;
             this.labelOS.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(70)))), ((int)(((byte)(116)))));
-            this.labelOS.Location = new System.Drawing.Point(498, 7);
+            this.labelOS.Location = new System.Drawing.Point(436, 6);
             this.labelOS.Name = "labelOS";
-            this.labelOS.Size = new System.Drawing.Size(78, 19);
+            this.labelOS.Size = new System.Drawing.Size(67, 15);
             this.labelOS.TabIndex = 23;
             this.labelOS.Text = "Obra Social";
             // 
@@ -236,72 +242,76 @@ namespace FrmEntrada
             // 
             this.labelDNI.AutoSize = true;
             this.labelDNI.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(70)))), ((int)(((byte)(116)))));
-            this.labelDNI.Location = new System.Drawing.Point(358, 7);
+            this.labelDNI.Location = new System.Drawing.Point(313, 6);
             this.labelDNI.Name = "labelDNI";
-            this.labelDNI.Size = new System.Drawing.Size(33, 19);
+            this.labelDNI.Size = new System.Drawing.Size(27, 15);
             this.labelDNI.TabIndex = 21;
             this.labelDNI.Text = "DNI";
             // 
             // textBoxDNI
             // 
             this.textBoxDNI.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(70)))), ((int)(((byte)(116)))));
-            this.textBoxDNI.Location = new System.Drawing.Point(358, 29);
+            this.textBoxDNI.Location = new System.Drawing.Point(313, 23);
+            this.textBoxDNI.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.textBoxDNI.Name = "textBoxDNI";
-            this.textBoxDNI.Size = new System.Drawing.Size(115, 26);
+            this.textBoxDNI.Size = new System.Drawing.Size(101, 23);
             this.textBoxDNI.TabIndex = 20;
             // 
             // labelEdad
             // 
             this.labelEdad.AutoSize = true;
             this.labelEdad.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(70)))), ((int)(((byte)(116)))));
-            this.labelEdad.Location = new System.Drawing.Point(279, 7);
+            this.labelEdad.Location = new System.Drawing.Point(244, 6);
             this.labelEdad.Name = "labelEdad";
-            this.labelEdad.Size = new System.Drawing.Size(39, 19);
+            this.labelEdad.Size = new System.Drawing.Size(33, 15);
             this.labelEdad.TabIndex = 19;
             this.labelEdad.Text = "Edad";
             // 
             // textBoxEdad
             // 
             this.textBoxEdad.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(70)))), ((int)(((byte)(116)))));
-            this.textBoxEdad.Location = new System.Drawing.Point(279, 29);
+            this.textBoxEdad.Location = new System.Drawing.Point(244, 23);
+            this.textBoxEdad.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.textBoxEdad.Name = "textBoxEdad";
-            this.textBoxEdad.Size = new System.Drawing.Size(53, 26);
+            this.textBoxEdad.Size = new System.Drawing.Size(47, 23);
             this.textBoxEdad.TabIndex = 18;
             // 
             // labelApellido
             // 
             this.labelApellido.AutoSize = true;
             this.labelApellido.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(70)))), ((int)(((byte)(116)))));
-            this.labelApellido.Location = new System.Drawing.Point(142, 7);
+            this.labelApellido.Location = new System.Drawing.Point(124, 6);
             this.labelApellido.Name = "labelApellido";
-            this.labelApellido.Size = new System.Drawing.Size(58, 19);
+            this.labelApellido.Size = new System.Drawing.Size(51, 15);
             this.labelApellido.TabIndex = 17;
             this.labelApellido.Text = "Apellido";
             // 
             // textBoxApellido
             // 
             this.textBoxApellido.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(70)))), ((int)(((byte)(116)))));
-            this.textBoxApellido.Location = new System.Drawing.Point(142, 29);
+            this.textBoxApellido.Location = new System.Drawing.Point(124, 23);
+            this.textBoxApellido.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.textBoxApellido.Name = "textBoxApellido";
-            this.textBoxApellido.Size = new System.Drawing.Size(115, 26);
+            this.textBoxApellido.Size = new System.Drawing.Size(101, 23);
             this.textBoxApellido.TabIndex = 16;
             // 
             // labelNombre
             // 
             this.labelNombre.AutoSize = true;
             this.labelNombre.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(70)))), ((int)(((byte)(116)))));
-            this.labelNombre.Location = new System.Drawing.Point(4, 7);
+            this.labelNombre.Location = new System.Drawing.Point(4, 6);
             this.labelNombre.Name = "labelNombre";
-            this.labelNombre.Size = new System.Drawing.Size(59, 19);
+            this.labelNombre.Size = new System.Drawing.Size(51, 15);
             this.labelNombre.TabIndex = 15;
             this.labelNombre.Text = "Nombre";
             // 
             // textBoxNombre
             // 
             this.textBoxNombre.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(70)))), ((int)(((byte)(116)))));
-            this.textBoxNombre.Location = new System.Drawing.Point(4, 29);
+            this.textBoxNombre.Location = new System.Drawing.Point(4, 23);
+            this.textBoxNombre.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.textBoxNombre.Name = "textBoxNombre";
-            this.textBoxNombre.Size = new System.Drawing.Size(115, 26);
+            this.textBoxNombre.Size = new System.Drawing.Size(101, 23);
             this.textBoxNombre.TabIndex = 14;
             // 
             // Nombre
@@ -410,15 +420,16 @@ namespace FrmEntrada
             // 
             // FormListaDeEspera
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 19F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(246)))), ((int)(((byte)(251)))));
-            this.ClientSize = new System.Drawing.Size(640, 428);
+            this.ClientSize = new System.Drawing.Size(615, 389);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.dataGridViewPacientes);
             this.Controls.Add(this.BotonConsulta);
             this.Controls.Add(this.BotonEliminar);
             this.Controls.Add(this.BotonInsertar);
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "FormListaDeEspera";
             this.Text = "Lista de Espera";
             this.Load += new System.EventHandler(this.FormListaDeEspera_Load);

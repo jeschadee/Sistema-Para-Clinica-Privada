@@ -62,11 +62,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\W10-PC\\Desktop\\Programacion\\Codigos\\Sistema-Para-Clinica-Privada\\Sistema Clinica Privada\\FrmEntrada\\Interfaz.csproj",
+      "projectUniqueName": "C:\\Users\\W10-PC\\Desktop\\Nueva carpeta\\Sistema-Para-Clinica-Privada\\Sistema Clinica Privada\\FrmEntrada\\Interfaz.csproj",
       "projectName": "Interfaz",
-      "projectPath": "C:\\Users\\W10-PC\\Desktop\\Programacion\\Codigos\\Sistema-Para-Clinica-Privada\\Sistema Clinica Privada\\FrmEntrada\\Interfaz.csproj",
+      "projectPath": "C:\\Users\\W10-PC\\Desktop\\Nueva carpeta\\Sistema-Para-Clinica-Privada\\Sistema Clinica Privada\\FrmEntrada\\Interfaz.csproj",
       "packagesPath": "C:\\Users\\W10-PC\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\W10-PC\\Desktop\\Programacion\\Codigos\\Sistema-Para-Clinica-Privada\\Sistema Clinica Privada\\FrmEntrada\\obj\\",
+      "outputPath": "C:\\Users\\W10-PC\\Desktop\\Nueva carpeta\\Sistema-Para-Clinica-Privada\\Sistema Clinica Privada\\FrmEntrada\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\W10-PC\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -83,8 +83,8 @@
         "net5.0-windows7.0": {
           "targetAlias": "net5.0-windows",
           "projectReferences": {
-            "C:\\Users\\W10-PC\\Desktop\\Programacion\\Codigos\\Sistema-Para-Clinica-Privada\\Sistema Clinica Privada\\Biblioteca De Clases\\BibliotecaDeClases.csproj": {
-              "projectPath": "C:\\Users\\W10-PC\\Desktop\\Programacion\\Codigos\\Sistema-Para-Clinica-Privada\\Sistema Clinica Privada\\Biblioteca De Clases\\BibliotecaDeClases.csproj"
+            "C:\\Users\\W10-PC\\Desktop\\Nueva carpeta\\Sistema-Para-Clinica-Privada\\Sistema Clinica Privada\\Biblioteca De Clases\\BibliotecaDeClases.csproj": {
+              "projectPath": "C:\\Users\\W10-PC\\Desktop\\Nueva carpeta\\Sistema-Para-Clinica-Privada\\Sistema Clinica Privada\\Biblioteca De Clases\\BibliotecaDeClases.csproj"
             }
           }
         }

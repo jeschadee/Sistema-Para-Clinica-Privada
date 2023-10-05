@@ -50,3 +50,29 @@ C:\Users\W10-PC\Desktop\Nueva carpeta\Sistema-Para-Clinica-Privada\Sistema Clini
 C:\Users\W10-PC\Desktop\Nueva carpeta\Sistema-Para-Clinica-Privada\Sistema Clinica Privada\FrmEntrada\obj\Debug\net5.0-windows\ref\Interfaz.dll
 C:\Users\W10-PC\Desktop\Nueva carpeta\Sistema-Para-Clinica-Privada\Sistema Clinica Privada\FrmEntrada\obj\Debug\net5.0-windows\Interfaz.pdb
 C:\Users\W10-PC\Desktop\Nueva carpeta\Sistema-Para-Clinica-Privada\Sistema Clinica Privada\FrmEntrada\obj\Debug\net5.0-windows\Interfaz.genruntimeconfig.cache
+C:\Users\Jesus\Desktop\Sistema-Para-Clinica-Privada\Sistema Clinica Privada\FrmEntrada\bin\Debug\net5.0-windows\Interfaz.exe
+C:\Users\Jesus\Desktop\Sistema-Para-Clinica-Privada\Sistema Clinica Privada\FrmEntrada\bin\Debug\net5.0-windows\Interfaz.deps.json
+C:\Users\Jesus\Desktop\Sistema-Para-Clinica-Privada\Sistema Clinica Privada\FrmEntrada\bin\Debug\net5.0-windows\Interfaz.runtimeconfig.json
+C:\Users\Jesus\Desktop\Sistema-Para-Clinica-Privada\Sistema Clinica Privada\FrmEntrada\bin\Debug\net5.0-windows\Interfaz.runtimeconfig.dev.json
+C:\Users\Jesus\Desktop\Sistema-Para-Clinica-Privada\Sistema Clinica Privada\FrmEntrada\bin\Debug\net5.0-windows\Interfaz.dll
+C:\Users\Jesus\Desktop\Sistema-Para-Clinica-Privada\Sistema Clinica Privada\FrmEntrada\bin\Debug\net5.0-windows\Interfaz.pdb
+C:\Users\Jesus\Desktop\Sistema-Para-Clinica-Privada\Sistema Clinica Privada\FrmEntrada\bin\Debug\net5.0-windows\FontAwesome.Sharp.dll
+C:\Users\Jesus\Desktop\Sistema-Para-Clinica-Privada\Sistema Clinica Privada\FrmEntrada\bin\Debug\net5.0-windows\BibliotecaDeClases.dll
+C:\Users\Jesus\Desktop\Sistema-Para-Clinica-Privada\Sistema Clinica Privada\FrmEntrada\bin\Debug\net5.0-windows\BibliotecaDeClases.pdb
+C:\Users\Jesus\Desktop\Sistema-Para-Clinica-Privada\Sistema Clinica Privada\FrmEntrada\obj\Debug\net5.0-windows\Interfaz.csproj.AssemblyReference.cache
+C:\Users\Jesus\Desktop\Sistema-Para-Clinica-Privada\Sistema Clinica Privada\FrmEntrada\obj\Debug\net5.0-windows\FrmEntrada.FormHistorial.resources
+C:\Users\Jesus\Desktop\Sistema-Para-Clinica-Privada\Sistema Clinica Privada\FrmEntrada\obj\Debug\net5.0-windows\FrmEntrada.FormListaDeEspera.resources
+C:\Users\Jesus\Desktop\Sistema-Para-Clinica-Privada\Sistema Clinica Privada\FrmEntrada\obj\Debug\net5.0-windows\FrmEntrada.ListaDeMedicos.resources
+C:\Users\Jesus\Desktop\Sistema-Para-Clinica-Privada\Sistema Clinica Privada\FrmEntrada\obj\Debug\net5.0-windows\FrmEntrada.frmInicio.resources
+C:\Users\Jesus\Desktop\Sistema-Para-Clinica-Privada\Sistema Clinica Privada\FrmEntrada\obj\Debug\net5.0-windows\Interfaz.Properties.Resources.resources
+C:\Users\Jesus\Desktop\Sistema-Para-Clinica-Privada\Sistema Clinica Privada\FrmEntrada\obj\Debug\net5.0-windows\Interfaz.csproj.GenerateResource.cache
+C:\Users\Jesus\Desktop\Sistema-Para-Clinica-Privada\Sistema Clinica Privada\FrmEntrada\obj\Debug\net5.0-windows\Interfaz.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Jesus\Desktop\Sistema-Para-Clinica-Privada\Sistema Clinica Privada\FrmEntrada\obj\Debug\net5.0-windows\Interfaz.AssemblyInfoInputs.cache
+C:\Users\Jesus\Desktop\Sistema-Para-Clinica-Privada\Sistema Clinica Privada\FrmEntrada\obj\Debug\net5.0-windows\Interfaz.AssemblyInfo.cs
+C:\Users\Jesus\Desktop\Sistema-Para-Clinica-Privada\Sistema Clinica Privada\FrmEntrada\obj\Debug\net5.0-windows\Interfaz.csproj.CoreCompileInputs.cache
+C:\Users\Jesus\Desktop\Sistema-Para-Clinica-Privada\Sistema Clinica Privada\FrmEntrada\obj\Debug\net5.0-windows\Interfaz.csproj.CopyComplete
+C:\Users\Jesus\Desktop\Sistema-Para-Clinica-Privada\Sistema Clinica Privada\FrmEntrada\obj\Debug\net5.0-windows\Interfaz.dll
+C:\Users\Jesus\Desktop\Sistema-Para-Clinica-Privada\Sistema Clinica Privada\FrmEntrada\obj\Debug\net5.0-windows\refint\Interfaz.dll
+C:\Users\Jesus\Desktop\Sistema-Para-Clinica-Privada\Sistema Clinica Privada\FrmEntrada\obj\Debug\net5.0-windows\Interfaz.pdb
+C:\Users\Jesus\Desktop\Sistema-Para-Clinica-Privada\Sistema Clinica Privada\FrmEntrada\obj\Debug\net5.0-windows\Interfaz.genruntimeconfig.cache
+C:\Users\Jesus\Desktop\Sistema-Para-Clinica-Privada\Sistema Clinica Privada\FrmEntrada\obj\Debug\net5.0-windows\ref\Interfaz.dll
